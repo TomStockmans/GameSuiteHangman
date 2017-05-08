@@ -17,14 +17,14 @@ public class Speler {
 	}
 	
 	private void setNaam(String naam) throws DomainException{
-		if(naam.equals("")){
+		if(naam==null||naam.trim().isEmpty()){
 			throw new DomainException("BOOS, Naam moet letters bevatten");
 		}
 		this.naam = naam;
 	}
 	
 	public void addToScore(int score) throws DomainException{
-		if(score<0){
+		if(this.score+score<0){
 			throw new DomainException("BOOS, niet negatief!");
 		}
 		this.score = this.score + score;
@@ -33,7 +33,7 @@ public class Speler {
 	public boolean equals(Object object){
 		if (object instanceof Speler){
 	     Speler nieuw = (Speler) object;
-	     if (nieuw.getNaam().equals(this.getNaam())){
+	     if (nieuw.getNaam().equals(this.getNaam())&&nieuw.getScore()==this.score){
 	    	 return true;
 	     }
 		}
