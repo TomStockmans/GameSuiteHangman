@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import domain.Cirkel;
 import domain.Punt;
+import domain.Rechthoek;
 import domain.Speler;
 
 public class Launcher {
@@ -25,13 +26,15 @@ public class Launcher {
 		
 		Punt punt = new Punt(x, y);
 		
-		switch(keuze){
+		String keuze1 = (String)keuze;
+		switch(keuze1){
 			case "Cirkel":
 				Cirkel cirkel = new Cirkel(punt, Integer.parseInt(JOptionPane.showInputDialog("Hoe groot moet de straal van de cirkel zijn?")));
 				JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
 				break;
 			case "Rechthoek":
-				
+				Rechthoek rechthoek = new Rechthoek(punt, Integer.parseInt(JOptionPane.showInputDialog("welke breedte moet de rechthoek zijn?")), Integer.parseInt(JOptionPane.showInputDialog("welke lengte moet de rechthoek zijn?")));
+				JOptionPane.showMessageDialog(null, "U hebt een correcte rechthoek aangemaakt: " + rechthoek.toString());
 		}
 		
 	}
