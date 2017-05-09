@@ -12,6 +12,7 @@ public class TekeningTest {
 	private Vorm dak;
 	private Vorm deur;
 	private Vorm raam;
+	private Vorm raamBuitenVeld;
 	private Vorm deurknop;
 	private Vorm raambalk1;
 	private Vorm raambalk2;
@@ -23,6 +24,7 @@ public class TekeningTest {
 		dak = new Driehoek(new Punt(100, 200), new Punt(300, 200), new Punt(200, 100));
 		deur = new Rechthoek(new Punt(130, 280), 50,100);
 		raam = new Rechthoek(new Punt(210, 220), 80, 60);
+		raamBuitenVeld = new Rechthoek(new Punt(210, 220), 500, 60);
 		deurknop = new Cirkel(new Punt(170, 320), 2);
 		raambalk1 = new LijnStuk(new Punt(210, 250), new Punt(290, 250));
 		raambalk2 = new LijnStuk(new Punt(250, 220), new Punt(250, 280));
@@ -99,6 +101,12 @@ public class TekeningTest {
 		Tekening huisMetSchouw = createHuisMetSchouw();
 		huisMetSchouw.verwijder(schouwNietInTekening);
 		assertTrue(huis.equals(huisMetSchouw));
+	}
+
+	@Test (expected = DomainException.class)
+	public void Tekening_moet_exception_gooien_als_vorm_buiten_bereik() {
+		Tekening huis = createHuisZonderShouw();
+		huis.voegToe(raamBuitenVeld);
 	}
 
 

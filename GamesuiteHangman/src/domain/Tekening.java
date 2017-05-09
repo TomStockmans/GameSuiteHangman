@@ -38,6 +38,8 @@ public class Tekening {
 	}
 
 	public void voegToe(Vorm vorm) {
+        Omhullende omhullende = vorm.getOmhullende();
+        if(omhullende.getMinimalX()<MIN_X || omhullende.getMaximalX() > MAX_X || omhullende.getMaximalY()>MAX_Y || omhullende.getMinimalY() < MIN_Y ) throw new DomainException("The vorm doesn't fit");
 		vormen.add(vorm);
 		
 	}
