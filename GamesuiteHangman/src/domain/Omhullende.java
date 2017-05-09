@@ -63,7 +63,7 @@ public class Omhullende extends Vorm{
 		return this.getLinkerBovenhoek().getY();
 	}
 	
-	public int getMaximmalY(){
+	public int getMaximalY(){
 		return this.getMinimalY()+this.getHoogte();
 	}
 	

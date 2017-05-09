@@ -1,5 +1,6 @@
 package domain;
 
-public class Vorm {
+public abstract class Vorm {
 
+	public abstract boolean equals(Object object);
 }

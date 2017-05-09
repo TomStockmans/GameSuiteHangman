@@ -21,6 +21,5 @@ public class Rechthoek extends Vorm{
 		return null;
 	}
 	
-	
 
 }
