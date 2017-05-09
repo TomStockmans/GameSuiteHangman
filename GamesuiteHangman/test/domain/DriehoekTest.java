@@ -65,5 +65,21 @@ public class DriehoekTest {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		assertFalse(drieHoek.equals(null));
 	}
+	@Test (expected = DomainException.class)
+	public void DrieHoek_Moet_exception_gooien_als_punt1_equals_punt2()  {
+		new Driehoek(punt1, zelfdeAlsPunt1, punt3);
+		
+	}
+	@Test (expected = DomainException.class)
+	public void DrieHoek_Moet_exception_gooien_als_punt1_equals_punt3()  {
+		new Driehoek(punt1, punt2, zelfdeAlsPunt1);
+		
+	}
+	@Test (expected = DomainException.class)
+	public void DrieHoek_Moet_exception_gooien_als_punt2_equals_punt3()  {
+		new Driehoek(punt1, punt2, zelfdeAlsPunt2);
+		
+	}
+
 
 }
