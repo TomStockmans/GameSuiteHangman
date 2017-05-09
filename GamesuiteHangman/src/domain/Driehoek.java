@@ -14,6 +14,9 @@ public class Driehoek extends Vorm{
 		if (punt1==null || punt2==null || punt3==null){
 			throw new DomainException("Hoeken mogen niet null zijn");
 		}
+		if (punt1.equals(punt2)||punt1.equals(punt3)||punt2.equals(punt3)){
+			throw new DomainException("Hoeken mogen niet gelijk zijn");
+		}
 		this.hoekpunt1=punt1;
 		this.hoekpunt2=punt2;
 		this.hoekpunt3=punt3;
