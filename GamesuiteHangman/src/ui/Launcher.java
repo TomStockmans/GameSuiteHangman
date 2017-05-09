@@ -14,6 +14,9 @@ public class Launcher {
 
 		JOptionPane.showMessageDialog(null, "... zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 		
+		Object[] shapes = {"Cirkel","Rechthoek"};
+		Object keuze = JOptionPane.showInputDialog(null, "wat wilt u tekenen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+		
 		String xwaarde = JOptionPane.showInputDialog("Wat is de x-waarde van je punt?");
 		int x = Integer.valueOf(xwaarde);
 		
@@ -22,9 +25,14 @@ public class Launcher {
 		
 		Punt punt = new Punt(x, y);
 		
-		Cirkel cirkel = new Cirkel(punt, Integer.parseInt(JOptionPane.showInputDialog("Hoe groot moet de straal van de cirkel zijn?")));
-		JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
-		
+		switch(keuze){
+			case "Cirkel":
+				Cirkel cirkel = new Cirkel(punt, Integer.parseInt(JOptionPane.showInputDialog("Hoe groot moet de straal van de cirkel zijn?")));
+				JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
+				break;
+			case "Rechthoek":
+				
+		}
 		
 	}
 
