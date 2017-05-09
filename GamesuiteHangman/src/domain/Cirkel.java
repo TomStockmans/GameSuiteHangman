@@ -4,6 +4,11 @@ public class Cirkel {
 	
 	int radius;
 	Punt middelpunt;
+	
+	public Cirkel(Punt middelpunt, int radius){
+		
+	}
+	
 	public int getRadius() {
 		return radius;
 	}
@@ -17,8 +22,6 @@ public class Cirkel {
 	public void setMiddelpunt(Punt middelpunt) {
 		this.middelpunt = middelpunt;
 	}
-	public Cirkel(Punt middelpunt, int radius){
-		
-	}
+	
 	
 }
