@@ -1,7 +1,7 @@
 package domain;
 
 public class Omhullende extends Vorm{
-
+	
 	public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
 		setLinkerBovenhoek(linkerBovenhoek);
 		setBreedte(breedte);

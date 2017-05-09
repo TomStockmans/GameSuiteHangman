@@ -5,11 +5,13 @@ public class Rechthoek extends Vorm {
 	private Punt punt;
 	private int breedte;
 	private int hoogte;
+	private Omhullende omhullende;
 
 	public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) {
 		setBreedte(breedte);
 		setHoogte(hoogte);
 		setLinkerBovenhoek(linkerBovenhoek);
+		omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
 	}
 
 	// getters en setters
@@ -44,6 +46,10 @@ public class Rechthoek extends Vorm {
 		}
 		this.hoogte = hoogte;
 	}
+	
+	public Omhullende getOmhullende(){
+		return this.omhullende; 
+	}
 
 	// methodes
 
@@ -60,7 +66,7 @@ public class Rechthoek extends Vorm {
 
 	@Override
 	public String toString() {
-		return "Rechthoek: " + punt.toString() + " - breedte: " + breedte + " - hoogte: " + hoogte;
+		return "Rechthoek: " + punt.toString() + " - breedte: " + breedte + " - hoogte: " + hoogte + "\n" + this.omhullende.toString();
 	}
 
 }
