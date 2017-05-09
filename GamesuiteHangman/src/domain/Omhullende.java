@@ -34,7 +34,7 @@ public class Omhullende extends Vorm{
 	 * @param breedte the breedte to set
 	 */
 	public void setBreedte(int breedte) {
-		if(breedte < 0) throw new DomainException("Punt kan niet null zijn");
+		if(breedte < 0) throw new DomainException("Breedte kan niet negatief zijn");
 		this.breedte = breedte;
 	}
 	/**
@@ -47,14 +47,36 @@ public class Omhullende extends Vorm{
 	 * @param hoogte the hoogte to set
 	 */
 	public void setHoogte(int hoogte) {
-		if(hoogte < 0) throw new DomainException("Punt kan niet null zijn");
+		if(hoogte < 0) throw new DomainException("Hoogte kan niet negatief zijn");
 		this.hoogte = hoogte;
 	}
+	
+	public int getMinimalX(){
+		return this.getLinkerBovenhoek().getX();
+	}
+	
+	public int getMaximalX(){
+		return this.getMinimalX()+this.getBreedte();
+	}
+	
+	public int getMinimalY(){
+		return this.getLinkerBovenhoek().getY();
+	}
+	
+	public int getMaximmalY(){
+		return this.getMinimalY()+this.getHoogte();
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if(!(obj instanceof Omhullende)) return false;
 		Omhullende omhullende = (Omhullende) obj;
 		return (this.linkerbovenhoek.equals(omhullende.linkerbovenhoek) && this.breedte == omhullende.breedte &&  this.hoogte == omhullende.hoogte);
+	}
+	
+	@Override
+	public String toString(){
+		return "Omhullende: "+this.getLinkerBovenhoek().toString()+" - "+this.getBreedte()+" - "+this.getHoogte();
 	}
 	
 }

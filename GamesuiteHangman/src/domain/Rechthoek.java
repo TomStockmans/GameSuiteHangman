@@ -20,5 +20,7 @@ public class Rechthoek extends Vorm{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }
