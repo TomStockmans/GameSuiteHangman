@@ -1,34 +1,51 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Tekening {
 
-	public Tekening(String string) {
-		// TODO Auto-generated constructor stub
+	private String naam;
+    private ArrayList<Vorm> vormen = new ArrayList<>();
+    private static final int MIN_X = 0;
+    private static final int MIN_Y = 0;
+    private static final int MAX_X = 399;
+    private static final int MAX_Y = 399;
+
+    public Tekening(String naam) {
+        setNaam(naam);
 	}
 
-	public Object getNaam() {
-		// TODO Auto-generated method stub
-		return null;
+    public void setNaam(String naam) {
+        if(null == naam || naam.isEmpty()) throw new IllegalArgumentException("Naam kan niet leeg of null zijn");
+        this.naam = naam;
+    }
+
+    public String getNaam() {
+        return naam;
 	}
 
-	public Object getAantalVormen() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getAantalVormen() {
+		return vormen.size();
 	}
 
-	public boolean bevat(Vorm deur) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean bevat(Vorm vorm) {
+		return vormen.contains(vorm);
 	}
 
-	public void verwijder(Vorm schouwNietInTekening) {
-		// TODO Auto-generated method stub
+	public void verwijder(Vorm vorm) {
+		vormen.remove(vorm);
 		
 	}
 
-	public void voegToe(Vorm deur) {
-		// TODO Auto-generated method stub
+	public void voegToe(Vorm vorm) {
+		vormen.add(vorm);
 		
 	}
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Tekening)) return false;
+        Tekening tekening = (Tekening) obj;
+        return (tekening.vormen.equals(this.vormen) && tekening.getNaam() == this.getNaam());
+    }
 }

@@ -31,22 +31,20 @@ public class Launcher {
 		}
 		catch (DomainException e)
 		{
-			JOptionPane.showMessageDialog(null, e.getMessage());
+
 		}
 		
 	}
 	
 	private static int maakxwaardevoorpunt(){
-		int x;
 		while(true){
 			try{
-				x = Integer.valueOf(JOptionPane.showInputDialog("Wat is de x-waarde van je punt?"));
-				break;
+				return Integer.valueOf(JOptionPane.showInputDialog("Wat is de x-waarde van je punt?"));
 			}catch(NumberFormatException e){
-				if(JOptionPane.showConfirmDialog(null, "Wil je stoppen?") == 0) throw new DomainException("Ik wil stoppen");
+				if(JOptionPane.showConfirmDialog(null, "Wil je stoppen?") == 0) JOptionPane.showMessageDialog(null,"Ik wil stoppen");
+					//throw new DomainException("Ik wil stoppen");
 			}
 		}
-		return x;
 	}
 	
 	private static int maakywaardevoorpunt() throws DomainException{
