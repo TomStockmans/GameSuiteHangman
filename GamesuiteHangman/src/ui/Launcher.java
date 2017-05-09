@@ -3,6 +3,7 @@ package ui;
 import javax.swing.JOptionPane;
 
 import domain.Cirkel;
+import domain.DomainException;
 import domain.Punt;
 import domain.Speler;
 
@@ -14,18 +15,41 @@ public class Launcher {
 
 		JOptionPane.showMessageDialog(null, "... zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 		
-		String xwaarde = JOptionPane.showInputDialog("Wat is de x-waarde van je punt?");
-		int x = Integer.valueOf(xwaarde);
-		
-		String ywaarde= JOptionPane.showInputDialog("Wat is de y-waarde van je punt?");
-		int y = Integer.valueOf(ywaarde);
-		
-		Punt punt = new Punt(x, y);
-		
-		Cirkel cirkel = new Cirkel(punt, Integer.parseInt(JOptionPane.showInputDialog("Hoe groot moet de straal van de cirkel zijn?")));
-		JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
-		
+		try
+		{
+			int x = maakxwaardevoorpunt();
+			int y = maakywaardevoorpunt();
+			
+			Punt punt = new Punt(x, y);
+			
+			Cirkel cirkel = new Cirkel(punt, Integer.parseInt(JOptionPane.showInputDialog("Hoe groot moet de straal van de cirkel zijn?")));
+			
+			
+			
+			JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
+			
+		}
+		catch (DomainException e)
+		{
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
 		
 	}
-
+	
+	private static int maakxwaardevoorpunt(){
+		int x;
+		while(true){
+			try{
+				x = Integer.valueOf(JOptionPane.showInputDialog("Wat is de x-waarde van je punt?"));
+				break;
+			}catch(NumberFormatException e){
+				if(JOptionPane.showConfirmDialog(null, "Wil je stoppen?") == 0) throw new DomainException("Ik wil stoppen");
+			}
+		}
+		return x;
+	}
+	
+	private static int maakywaardevoorpunt() throws DomainException{
+		 return Integer.valueOf(JOptionPane.showInputDialog("Wat is de y-waarde van je punt?"));
+	}
 }
