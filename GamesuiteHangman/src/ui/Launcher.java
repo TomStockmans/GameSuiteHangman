@@ -25,7 +25,7 @@ public class Launcher {
 		
 		Punt punt = new Punt(x, y);
 		
-		switch(keuze){
+		switch((String) keuze){
 			case "Cirkel":
 				Cirkel cirkel = new Cirkel(punt, Integer.parseInt(JOptionPane.showInputDialog("Hoe groot moet de straal van de cirkel zijn?")));
 				JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
