@@ -31,7 +31,7 @@ public class Launcher {
 		}
 		catch (DomainException e)
 		{
-
+            JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 		
 	}
@@ -41,8 +41,7 @@ public class Launcher {
 			try{
 				return Integer.valueOf(JOptionPane.showInputDialog("Wat is de x-waarde van je punt?"));
 			}catch(NumberFormatException e){
-				if(JOptionPane.showConfirmDialog(null, "Wil je stoppen?") == 0) JOptionPane.showMessageDialog(null,"Ik wil stoppen");
-					//throw new DomainException("Ik wil stoppen");
+				if(JOptionPane.showConfirmDialog(null, "Wil je stoppen?") == 0) throw new DomainException("Ik wil stoppen, x-waarde was ongeldig");
 			}
 		}
 	}
