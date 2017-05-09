@@ -43,7 +43,12 @@ public class Driehoek extends Vorm{
 	if(this.getHoekPunt1() == driehoek.getHoekPunt1() && this.getHoekPunt2() == driehoek.getHoekPunt2() && this.getHoekPunt3()==driehoek.getHoekPunt3()) return true;
 	return false;
 	}
-	
+
+	@Override
+	public Omhullende getOmhullende() {
+		return null;
+	}
+
 	@Override
 	public String toString() {
 		return "Driehoek: hoekpunt1: "+this.getHoekPunt1().toString()+" - hoekpunt2: "+this.getHoekPunt2().toString()+" - hoekpunt3: "+this.getHoekPunt3();

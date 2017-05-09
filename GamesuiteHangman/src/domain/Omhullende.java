@@ -73,7 +73,12 @@ public class Omhullende extends Vorm{
 		Omhullende omhullende = (Omhullende) obj;
 		return (this.linkerbovenhoek.equals(omhullende.linkerbovenhoek) && this.breedte == omhullende.breedte &&  this.hoogte == omhullende.hoogte);
 	}
-	
+
+	@Override
+	public Omhullende getOmhullende() {
+		return this;
+	}
+
 	@Override
 	public String toString(){
 		return "Omhullende: "+this.getLinkerBovenhoek().toString()+" - "+this.getBreedte()+" - "+this.getHoogte();

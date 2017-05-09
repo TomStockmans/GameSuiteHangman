@@ -49,7 +49,6 @@ public class Tekening {
         return (arraysEqual(this.vormen, tekening.vormen));
     }
     private boolean arraysEqual(ArrayList<Vorm> list1, ArrayList<Vorm> list2){
-    	
         if(list1 == null && list2 == null) return true;
         if(list1 == null || list2 == null) return false;
         if(list1.size() == 0 || list2.size() == 0) return true;

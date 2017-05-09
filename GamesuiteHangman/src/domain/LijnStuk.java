@@ -28,4 +28,9 @@ public class LijnStuk extends Vorm{
 		return false;
 	}
 
+    @Override
+    public Omhullende getOmhullende() {
+        return null;
+    }
+
 }
