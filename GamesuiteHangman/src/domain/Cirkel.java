@@ -1,9 +1,16 @@
 package domain;
 
-public class Cirkel {
-	
+public class Cirkel extends Vorm{
+
+
+
 	int radius;
 	Punt middelpunt;
+
+	public Cirkel(Punt middelpunt, int radius){
+
+	}
+
 	public int getRadius() {
 		return radius;
 	}
@@ -14,11 +21,9 @@ public class Cirkel {
 	public Punt getMiddelpunt() {
 		return middelpunt;
 	}
+
 	public void setMiddelpunt(Punt middelpunt) {
 		this.middelpunt = middelpunt;
-	}
-	public Cirkel(Punt middelpunt, int radius){
-		
 	}
 	
 }
