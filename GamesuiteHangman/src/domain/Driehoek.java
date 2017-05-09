@@ -17,6 +17,9 @@ public class Driehoek extends Vorm{
 		if (punt1.equals(punt2)||punt1.equals(punt3)||punt2.equals(punt3)){
 			throw new DomainException("Hoeken mogen niet gelijk zijn");
 		}
+		if(opZelfdeLijn(punt1, punt2, punt3)){
+			throw new DomainException("Hoeken op zelfde lijn");
+		}
 		this.hoekpunt1=punt1;
 		this.hoekpunt2=punt2;
 		this.hoekpunt3=punt3;
@@ -43,7 +46,11 @@ public class Driehoek extends Vorm{
 	
 	@Override
 	public String toString() {
-		return "Driehoek met hoekpunten: "+this.getHoekPunt1()+","+this.getHoekPunt2()+","+this.getHoekPunt3();
+		return "Driehoek: hoekpunt1: "+this.getHoekPunt1().toString()+" - hoekpunt2: "+this.getHoekPunt2().toString()+" - hoekpunt3: "+this.getHoekPunt3();
+	}
+	
+	private boolean opZelfdeLijn(Punt punt1, Punt punt2, Punt punt3){
+		return (punt2.getX()-punt1.getX())*(punt3.getY()-punt1.getY())==((punt3.getX()-punt1.getX())*(punt2.getY()-punt1.getY()));
 	}
 
 }
