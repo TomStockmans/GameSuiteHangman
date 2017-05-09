@@ -55,6 +55,30 @@ public class OmhullendeTest {
 	}
 	
 	@Test
+	public void Omhullende_Moet_Minimale_X_Weergeven(){
+		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
+		assertEquals(200, omhullende.getMinimalX());
+	}
+	
+	@Test
+	public void Omhullende_Moet_Maximale_X_Weergeven(){
+		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
+		assertEquals(220, omhullende.getMaximalX());
+	}
+	
+	@Test
+	public void Omhullende_Moet_Minimale_Y_Weergeven(){
+		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
+		assertEquals(200, omhullende.getMinimalY());
+	}
+	
+	@Test
+	public void Omhullende_Moet_Maximale_Y_Weergeven(){
+		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
+		assertEquals(240, omhullende.getMaximalY());
+	}
+	
+	@Test
 	public void equals_moet_true_teruggeven_als_linkerbovenhoek_breedte_hoogte_gelijk_zijn(){
 		Omhullende zelfdeOmhullende = new Omhullende(linkerBovenhoek,breedte, hoogte);
 		assertTrue(omhullende.equals(zelfdeOmhullende));
