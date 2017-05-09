@@ -83,5 +83,16 @@ public class CirkelTest {
 		
 		
 	}
+	@Test
+	public void Equals_methode_geeft_false_terug_als_omhullende_verschillend_is() {
+
+		Cirkel cirkel1 = new Cirkel(new Punt(200,200), 20);
+
+		Omhullende omhullende1 = cirkel1.getOmhullende();
+		Omhullende omhullende2 = new Omhullende(new Punt(180,180), 40,40);
+
+		assertTrue(omhullende1.equals(omhullende2));
+
+	}
 
 }

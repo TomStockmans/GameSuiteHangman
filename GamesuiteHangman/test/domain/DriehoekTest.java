@@ -88,5 +88,15 @@ public class DriehoekTest {
 		new Driehoek(punt1lijn, punt2lijn, punt3lijn);
 		
 	}
+	@Test
+	public void equals_moet_true_teruggeven_als_omhullende_gelijk(){
+
+		Driehoek driehoek = new Driehoek(new Punt(100,200), new Punt(300,200), new Punt(200,100));
+
+		Omhullende omhullende1 = driehoek.getOmhullende();
+		Omhullende omhullende2 = new Omhullende(new Punt(100,100), 200,100);
+
+		assertTrue(omhullende1.equals(omhullende2));
+	}
 
 }

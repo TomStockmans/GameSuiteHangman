@@ -46,7 +46,11 @@ public class Driehoek extends Vorm{
 
 	@Override
 	public Omhullende getOmhullende() {
-		return null;
+		int xmin = Math.min(Math.min(getHoekPunt1().getX(), getHoekPunt2().getX()), getHoekPunt3().getX());
+		int ymin = Math.min(Math.min(getHoekPunt1().getY(), getHoekPunt2().getY()), getHoekPunt3().getY());
+		int xmax = Math.max(Math.max(getHoekPunt1().getX(), getHoekPunt2().getX()), getHoekPunt3().getX());
+		int ymax = Math.max(Math.max(getHoekPunt1().getY(), getHoekPunt2().getY()), getHoekPunt3().getY());
+		return new Omhullende(new Punt(xmin, ymin), xmax-xmin, ymax-ymin);
 	}
 
 	@Override

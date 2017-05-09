@@ -12,11 +12,11 @@ public class LijnStuk extends Vorm{
 		this.eindpunt = eindpunt;
 	}
 
-	public Object getStartPunt() {
+	public Punt getStartPunt() {
 		return this.startpunt;
 	}
 
-	public Object getEindPunt() {
+	public Punt getEindPunt() {
 		return this.eindpunt;
 	}
 	
@@ -30,7 +30,11 @@ public class LijnStuk extends Vorm{
 
     @Override
     public Omhullende getOmhullende() {
-        return null;
+        int xmin = Math.min(getStartPunt().getX(), getEindPunt().getX());
+        int ymin = Math.min(getStartPunt().getY(), getEindPunt().getY());
+        int xmax = Math.max(getStartPunt().getX(), getEindPunt().getX());
+        int ymax = Math.max(getStartPunt().getY(), getEindPunt().getY());
+        return new Omhullende(new Punt(xmin, ymin), xmax-xmin, ymax-ymin);
     }
 
 }

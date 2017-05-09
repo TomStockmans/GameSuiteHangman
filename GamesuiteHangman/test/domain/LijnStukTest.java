@@ -42,5 +42,15 @@ public class LijnStukTest {
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
 		assertFalse(lijnStuk.equals(null));
 	}
+	@Test
+	public void equals_moet_true_teruggeven_als_omhullende_gelijk(){
+
+        LijnStuk lijnStuk = new LijnStuk(new Punt(100,150), new Punt(200,250));
+
+        Omhullende omhullende1 = lijnStuk.getOmhullende();
+        Omhullende omhullende2 = new Omhullende(new Punt(100,150), 100,100);
+
+        assertTrue(omhullende1.equals(omhullende2));
+	}
 }
 	
