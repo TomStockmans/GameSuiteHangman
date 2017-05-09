@@ -14,6 +14,9 @@ public class DriehoekTest {
 	private Punt punt3 = new Punt(190, 30);
 	private Punt zelfdeAlsPunt3 = new Punt(190, 30);
 	private Punt verschillendVanPunt3 = new Punt(120, 100);
+	private Punt punt1lijn = new Punt(10,20);
+	private Punt punt2lijn = new Punt(10,40);
+	private Punt punt3lijn = new Punt(10,60);
 
 	@Test
 	public void Driehoek_moet_DrieHoek_aanmaken_met_gegeven_hoekpunten() {
@@ -80,6 +83,10 @@ public class DriehoekTest {
 		new Driehoek(punt1, punt2, zelfdeAlsPunt2);
 		
 	}
-
+	@Test (expected = DomainException.class)
+	public void DrieHoek_Moet_exception_gooien_als_punten_zelfde_lijn()  {
+		new Driehoek(punt1lijn, punt2lijn, punt3lijn);
+		
+	}
 
 }
