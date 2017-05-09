@@ -46,7 +46,7 @@ public class Tekening {
     public boolean equals(Object obj) {
         if(!(obj instanceof Tekening)) return false;
         Tekening tekening = (Tekening) obj;
-        return (arraysEqual(this.vormen, vormen));
+        return (arraysEqual(this.vormen, tekening.vormen));
     }
     private boolean arraysEqual(ArrayList<Vorm> list1, ArrayList<Vorm> list2){
     	
@@ -54,6 +54,6 @@ public class Tekening {
         if(list1 == null || list2 == null) return false;
         if(list1.size() == 0 || list2.size() == 0) return true;
         if(list1.size() != list2.size()) return false;      
-        return (list1.containsAll(list2) /*&& list2.containsAll(list1)*/);
+        return (list1.containsAll(list2));
     }
 }
