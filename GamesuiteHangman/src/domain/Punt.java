@@ -28,6 +28,9 @@ public class Punt {
 	}
 	
 	public boolean equals(Object object){
+		if(!(object instanceof Punt)) return false;
+		Punt punt = (Punt) object;
+		if(this.getX() == punt.getX() && this.getY() == punt.getY()) return true;
 		return false;
 	}
 
