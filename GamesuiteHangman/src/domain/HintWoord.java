@@ -1,6 +1,6 @@
 package domain;
 
-import java.util.ArrayList;
+import domain.exceptions.DomainException;
 
 public class HintWoord {
 
