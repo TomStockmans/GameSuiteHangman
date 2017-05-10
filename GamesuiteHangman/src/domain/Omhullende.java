@@ -58,7 +58,7 @@ public class Omhullende extends Vorm{
 	}
 	
 	public int getMaxX(){
-		return this.getMinimalX()+this.getBreedte();
+		return this.getMinX()+this.getBreedte();
 	}
 	
 	public int getMinY(){
@@ -66,7 +66,7 @@ public class Omhullende extends Vorm{
 	}
 	
 	public int getMaxY(){
-		return this.getMinimalY()+this.getHoogte();
+		return this.getMinY()+this.getHoogte();
 	}
 	
 	@Override
