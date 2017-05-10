@@ -13,12 +13,10 @@ public class Launcher {
 
 		JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 
-        HangMan spel = new HangMan(speler, new WoordenLijst());
-        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, new HangmanPaneel(spel));
-		hoofdScherm.start();
+        
 		try
 		{
-			String[] keuzes = {"cirkel", "rechthoek", "lijnstuk"};
+			String[] keuzes = {"cirkel", "rechthoek", "lijnstuk", "driehoek", "huis met boom"};
 			String keuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen:", null, JOptionPane.QUESTION_MESSAGE, null, keuzes, keuzes[0]);
 			switch (keuze) {
 				case "cirkel": maakcirkel();
@@ -27,6 +25,9 @@ public class Launcher {
 					break;
 				case "lijnstuk": maaklijnstuk();
 					break;
+				case "driehoek": maakdriehoek();
+					break;
+				case "huis met boom": maakhuismetboom(speler);
 				default:
 					break;
 			}
@@ -89,6 +90,34 @@ public class Launcher {
 		
 		LijnStuk lijnstuk = new LijnStuk(punt1, punt2);
 		JOptionPane.showMessageDialog(null, "U hebt een correct lijnstuk aangemaakt: " + lijnstuk.toString());
+	}
+	
+	private static void maakdriehoek(){
+		JOptionPane.showMessageDialog(null, "U moet 3 punten aanmaken voor de driehoek.");
+		
+		int x1 = maakwaarde("x coordinaat van het eerste punt");
+		int y1 = maakwaarde("y coordinaat van het eerste punt");
+		Punt punt1 = new Punt(x1, y1);
+		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt1.toString());
+		
+		int x2 = maakwaarde("x coordinaat van het tweede punt");
+		int y2 = maakwaarde("y coordinaat van het tweede punt");
+		Punt punt2 = new Punt(x2, y2);
+		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt2.toString());
+		
+		int x3 = maakwaarde("x coordinaat van het derde punt");
+		int y3 = maakwaarde("y coordinaat van het derde punt");
+		Punt punt3 = new Punt(x3, y3);
+		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt3.toString());
+		
+		Driehoek driehoek = new Driehoek(punt1, punt2, punt3);
+		JOptionPane.showMessageDialog(null, "U hebt een correcte driehoek aangemaakt: " + driehoek.toString());
+	}
+	
+	private static void maakhuismetboom(Speler speler){
+		HangMan spel = new HangMan(speler, new WoordenLijst());
+        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, new HangmanPaneel(spel));
+		hoofdScherm.start();
 	}
 
 }
