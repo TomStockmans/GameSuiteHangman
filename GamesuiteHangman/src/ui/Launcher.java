@@ -13,8 +13,12 @@ public class Launcher {
 
 		JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 
-        HangMan spel = new HangMan(speler, new WoordenLijst());
-        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, new HangmanPaneel(spel));
+        WoordenLijst woordenLijst = new WoordenLijst();
+        HangMan spel = new HangMan(speler, woordenLijst);
+        HangmanPaneel paneel = new HangmanPaneel(spel);
+        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
+        Cirkel cirkel = new Cirkel(new Punt(100, 100), 50);
+        spel.getTekening().voegToe(cirkel);
 		hoofdScherm.start();
 		try
 		{

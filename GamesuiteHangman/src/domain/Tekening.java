@@ -1,10 +1,12 @@
 package domain;
 
 import domain.exceptions.DomainException;
+import domain.interfaces.Drawable;
 
+import java.awt.*;
 import java.util.ArrayList;
 
-public class Tekening {
+public class Tekening implements Drawable{
 
 	private String naam;
     private ArrayList<Vorm> vormen = new ArrayList<>();
@@ -63,5 +65,11 @@ public class Tekening {
 
     public int getAantalOnzichtbaar() {
         return aantalOnzichtbaar;
+    }
+
+    public void teken(Graphics graphics) {
+        for (Vorm vorm: vormen) {
+            vorm.teken(graphics);
+        }
     }
 }

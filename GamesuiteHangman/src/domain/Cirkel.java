@@ -2,6 +2,8 @@ package domain;
 
 import domain.exceptions.DomainException;
 
+import java.awt.*;
+
 public class Cirkel extends Vorm {
 	
 	int radius;
@@ -56,6 +58,12 @@ public class Cirkel extends Vorm {
     @Override
 	public String toString() {
 		return "Cirkel : middelPunt: " +middelpunt.toString() + " - straal: " + radius ;
+	}
+	public void teken(Graphics graphics){
+        Graphics2D graphics2D = (Graphics2D) graphics;
+        graphics2D.setStroke(new BasicStroke(5));
+		graphics.drawOval(getOmhullende().getMinX(), getOmhullende().getMinY(), getOmhullende()
+				.getBreedte(), getOmhullende().getHoogte());
 	}
 	
 	
