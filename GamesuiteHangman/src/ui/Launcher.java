@@ -3,7 +3,7 @@ package ui;
 import javax.swing.JOptionPane;
 
 import domain.Cirkel;
-import domain.DomainException;
+import domain.exceptions.DomainException;
 import domain.Punt;
 import domain.Speler;
 

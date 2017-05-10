@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exceptions.DomainException;
+
 public class Omhullende extends Vorm{
 	
 	public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {

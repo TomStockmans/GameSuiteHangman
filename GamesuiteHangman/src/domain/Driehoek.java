@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exceptions.DomainException;
+
 public class Driehoek extends Vorm{
 	
 	private Punt hoekpunt1;
@@ -10,7 +12,7 @@ public class Driehoek extends Vorm{
 		this.setHoekPunten(punt1, punt2, punt3);
 	}
 	
-	public void setHoekPunten(Punt punt1, Punt punt2, Punt punt3) throws DomainException{
+	public void setHoekPunten(Punt punt1, Punt punt2, Punt punt3) throws DomainException {
 		if (punt1==null || punt2==null || punt3==null){
 			throw new DomainException("Hoeken mogen niet null zijn");
 		}
