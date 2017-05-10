@@ -6,6 +6,10 @@ package domain;
 public class WoordenLijst {
     private int aantalWoorden;
 
+    public WoordenLijst() {
+        this.aantalWoorden = aantalWoorden;
+    }
+
     public void voegToe(String test) {
     }
 
