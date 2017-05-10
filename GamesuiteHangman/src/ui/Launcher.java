@@ -3,6 +3,7 @@ package ui;
 import javax.swing.JOptionPane;
 
 import domain.*;
+import domain.exceptions.DomainException;
 
 public class Launcher {
 

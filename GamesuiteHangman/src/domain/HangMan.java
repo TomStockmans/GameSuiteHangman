@@ -4,10 +4,16 @@ package domain;
  * Created by Henok on 10/05/2017.
  */
 public class HangMan {
+    private Speler speler;
+    private Tekening tekening;
+    private String hint;
+    private boolean gewonnen;
+    private boolean gameOver;
+
     public HangMan(Speler geldigeSpeler, WoordenLijst legeWoordenlijst) {
     }
 
-    public Tekening getSpeler() {
+    public Speler getSpeler() {
         return speler;
     }
 
