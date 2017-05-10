@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exceptions.DomainException;
+
 public class Omhullende extends Vorm{
 	
 	public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
@@ -51,20 +53,20 @@ public class Omhullende extends Vorm{
 		this.hoogte = hoogte;
 	}
 	
-	public int getMinimalX(){
+	public int getMinX(){
 		return this.getLinkerBovenhoek().getX();
 	}
 	
-	public int getMaximalX(){
-		return this.getMinimalX()+this.getBreedte();
+	public int getMaxX(){
+		return this.getMinX()+this.getBreedte();
 	}
 	
-	public int getMinimalY(){
+	public int getMinY(){
 		return this.getLinkerBovenhoek().getY();
 	}
 	
-	public int getMaximalY(){
-		return this.getMinimalY()+this.getHoogte();
+	public int getMaxY(){
+		return this.getMinY()+this.getHoogte();
 	}
 	
 	@Override

@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exceptions.DomainException;
+
 import java.util.ArrayList;
 
 public class Tekening {
@@ -10,6 +12,7 @@ public class Tekening {
     private static final int MIN_Y = 0;
     private static final int MAX_X = 399;
     private static final int MAX_Y = 399;
+    private int aantalOnzichtbaar;
 
     public Tekening(String naam) {
         setNaam(naam);
@@ -39,7 +42,7 @@ public class Tekening {
 
 	public void voegToe(Vorm vorm) {
         Omhullende omhullende = vorm.getOmhullende();
-        if(omhullende.getMinimalX()<MIN_X || omhullende.getMaximalX() > MAX_X || omhullende.getMaximalY()>MAX_Y || omhullende.getMinimalY() < MIN_Y ) throw new DomainException("The vorm doesn't fit");
+        if(omhullende.getMinX()<MIN_X || omhullende.getMaxX() > MAX_X || omhullende.getMaxY()>MAX_Y || omhullende.getMinY() < MIN_Y ) throw new DomainException("The vorm doesn't fit");
 		vormen.add(vorm);
 		
 	}
@@ -56,5 +59,9 @@ public class Tekening {
         if(list1.size() == 0 || list2.size() == 0) return true;
         if(list1.size() != list2.size()) return false;      
         return (list1.containsAll(list2));
+    }
+
+    public int getAantalOnzichtbaar() {
+        return aantalOnzichtbaar;
     }
 }

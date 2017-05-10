@@ -2,6 +2,7 @@ package domain;
 
 import static org.junit.Assert.*;
 
+import domain.exceptions.DomainException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -81,13 +82,5 @@ public class RechthoekTest {
 	@Test
 	public void equals_moet_false_teruggeven_als_parameter_null(){
 		assertFalse(rechthoek.equals(null));
-	}
-	
-	@Test
-	public void Rechthoek_Omhullende_Is_Gelijk_Aan_Rechthoek() {
-		Rechthoek rechthoek = new Rechthoek(linkerBovenhoek,breedte, hoogte);
-		assertEquals(linkerBovenhoek, rechthoek.getOmhullende().getLinkerBovenhoek());
-		assertEquals(hoogte, rechthoek.getOmhullende().getHoogte());
-		assertEquals(breedte, rechthoek.getOmhullende().getBreedte());
 	}
 }

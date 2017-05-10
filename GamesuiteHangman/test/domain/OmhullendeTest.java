@@ -2,6 +2,7 @@ package domain;
 
 import static org.junit.Assert.*;
 
+import domain.exceptions.DomainException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -52,30 +53,6 @@ public class OmhullendeTest {
 	public void Omhullende_Moet_omhullende_maken_als_hoogte_gelijk_aan_0()  {
 		Omhullende omhullende = new Omhullende(linkerBovenhoek,breedte, 0);
 		assertEquals(0, omhullende.getHoogte());
-	}
-	
-	@Test
-	public void Omhullende_Moet_Minimale_X_Weergeven(){
-		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
-		assertEquals(200, omhullende.getMinimalX());
-	}
-	
-	@Test
-	public void Omhullende_Moet_Maximale_X_Weergeven(){
-		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
-		assertEquals(220, omhullende.getMaximalX());
-	}
-	
-	@Test
-	public void Omhullende_Moet_Minimale_Y_Weergeven(){
-		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
-		assertEquals(200, omhullende.getMinimalY());
-	}
-	
-	@Test
-	public void Omhullende_Moet_Maximale_Y_Weergeven(){
-		Omhullende omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
-		assertEquals(240, omhullende.getMaximalY());
 	}
 	
 	@Test
