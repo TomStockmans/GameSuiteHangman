@@ -12,24 +12,15 @@ public class Launcher {
 		Speler speler = new Speler(naam);
 
 		JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
-
-
-        WoordenLijst woordenLijst = new WoordenLijst();
-        HangMan spel = new HangMan(speler, woordenLijst);
-        HangmanPaneel paneel = new HangmanPaneel(spel);
-        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
-        Cirkel cirkel = new Cirkel(new Punt(100, 100), 50);
-        spel.getTekening().voegToe(cirkel);
-		hoofdScherm.start();
 		
 		try
 		{
 			String[] keuzes = {"cirkel", "rechthoek", "lijnstuk", "driehoek", "huis met boom"};
 			String keuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen:", null, JOptionPane.QUESTION_MESSAGE, null, keuzes, keuzes[0]);
 			switch (keuze) {
-				case "cirkel": maakcirkel();
+				case "cirkel": maakcirkel(speler);
 					break;
-				case "rechthoek": maakrechthoek();
+				case "rechthoek": maakrechthoek(speler);
 					break;
 				case "lijnstuk": maaklijnstuk();
 					break;
@@ -59,7 +50,7 @@ public class Launcher {
 		}
 	}
 	
-	private static void maakcirkel(){
+	private static void maakcirkel(Speler speler){
 		JOptionPane.showMessageDialog(null, "U moet een middepunt aanmaken voor de cirkel.");
 		
 		int x = maakwaarde("x coordinaat van het punt");
@@ -69,9 +60,16 @@ public class Launcher {
 		
 		Cirkel cirkel = new Cirkel(punt, maakwaarde("raduis van de cirkel"));
 		JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
+		
+		WoordenLijst woordenLijst = new WoordenLijst();
+        HangMan spel = new HangMan(speler, woordenLijst);
+        HangmanPaneel paneel = new HangmanPaneel(spel);
+        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
+        spel.getTekening().voegToe(cirkel);
+		hoofdScherm.start();
 	}
 	
-	private static void maakrechthoek(){
+	private static void maakrechthoek(Speler speler){
 		JOptionPane.showMessageDialog(null, "U moet een linkerbovenhoek aanmaken voor de rechthoek.");
 		
 		int x = maakwaarde("x coordinaat van het punt");
@@ -81,6 +79,13 @@ public class Launcher {
 		
 		Rechthoek rechthoek = new Rechthoek(punt, maakwaarde("breedte van de rechthoek:"), maakwaarde("hoogte van de rechthoek:"));
 		JOptionPane.showMessageDialog(null, "U hebt een correcte rechthoek aangemaakt: " + rechthoek.toString());
+		
+		WoordenLijst woordenLijst = new WoordenLijst();
+        HangMan spel = new HangMan(speler, woordenLijst);
+        HangmanPaneel paneel = new HangmanPaneel(spel);
+        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
+        spel.getTekening().voegToe(rechthoek);
+		hoofdScherm.start();
 	}
 	
 	private static void maaklijnstuk(){
