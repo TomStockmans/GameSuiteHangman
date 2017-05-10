@@ -1,11 +1,12 @@
 package domain;
 
-import domain.exceptions.DomainException;
+import java.util.ArrayList;
+import domain.exceptions.*;
 
 public class HintWoord {
 
 	private String woord;
-	private String geradenwoord;
+	private String geradenwoord = "";
 
 	public HintWoord(String pwoord) {
 		setWoord(pwoord);
@@ -20,25 +21,16 @@ public class HintWoord {
 			throw new DomainException("Woord is ongeldig");
 		}
 		this.woord = woord;
-		// this.geradenwoord = geradenwoord.replaceAll("/ /", " ");
-		// this.geradenwoord = woord.replaceAll("/[^\s]/", " _");
+
 		char[] letters = woord.toCharArray();
 		for (int i = 0; i < letters.length; i++) {
 
-			if (letters[i] == ' ') {
+			if (i == 0) {
+				geradenwoord += "_";
+			} else if (letters[i] == ' ') {
 				geradenwoord += "  ";
-			} 
-			
-			else {
-				if (i == 0) {
-					geradenwoord += "_";
-				} else {
-					if (letters[i - 1] != ' ') {
-						geradenwoord += " _";
-					} else {
-						geradenwoord += "_";
-					}
-				}
+			} else {
+				geradenwoord += " _";
 			}
 
 		}
@@ -46,32 +38,23 @@ public class HintWoord {
 	}
 
 	public boolean raad(char letter) {
-		
-		
-		
-		return (woord.charAt(letter) >= 0);
-	}
 
-	public boolean komtWoordOvereen(){
-		String teradenwoord = "";
-		for(int i = 0; i<geradenwoord.length(); i++){
-			if(geradenwoord.indexOf(i-1) == ' ' && geradenwoord.indexOf(i) == ' ' ){
-				
-			}
-			else{
-				teradenwoord += geradenwoord.indexOf(i);
+		for (int i : woord.toCharArray()) {
+			if (i == letter) {
+				return true;
 			}
 		}
+
 		return false;
 	}
-	
+
 	public boolean isGeraden() {
-		return geradenwoord == woord;	
+		return geradenwoord == woord;
 	}
 
 	@Override
 	public String toString() {
-		return null;
+		return geradenwoord;
 	}
 
 }

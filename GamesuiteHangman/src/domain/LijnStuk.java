@@ -46,5 +46,10 @@ public class LijnStuk extends Vorm{
 		graphics2D.setStroke(new BasicStroke(5));
         graphics.drawLine(getStartPunt().getX(), getStartPunt().getY(), getEindPunt().getX(), getEindPunt().getY());
 	}
+	@Override
+	public String toString() {
+		return "LijnStuk:" + startpunt + ", " + eindpunt;
+	}
+    
 
 }
