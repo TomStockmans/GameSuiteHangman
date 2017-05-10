@@ -2,6 +2,8 @@ package domain;
 
 import domain.exceptions.DomainException;
 
+import java.awt.*;
+
 public class Driehoek extends Vorm{
 	
 	private Punt hoekpunt1;
@@ -62,6 +64,13 @@ public class Driehoek extends Vorm{
 	
 	private boolean opZelfdeLijn(Punt punt1, Punt punt2, Punt punt3){
 		return (punt2.getX()-punt1.getX())*(punt3.getY()-punt1.getY())==((punt3.getX()-punt1.getX())*(punt2.getY()-punt1.getY()));
+	}
+	public void teken(Graphics graphics){
+		Graphics2D graphics2D = (Graphics2D) graphics;
+		graphics2D.setStroke(new BasicStroke(5));
+		int[] xPoints = { getHoekPunt1().getX(), getHoekPunt2().getX(), getHoekPunt3().getX() };
+		int[] yPoints = { getHoekPunt1().getY(), getHoekPunt2().getY(), getHoekPunt3().getY() };
+		graphics.drawPolygon(xPoints, yPoints, 3);
 	}
 
 }

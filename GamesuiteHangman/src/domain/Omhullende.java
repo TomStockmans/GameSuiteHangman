@@ -2,7 +2,7 @@ package domain;
 
 import domain.exceptions.DomainException;
 
-public class Omhullende extends Vorm{
+public class Omhullende{
 	
 	public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
 		setLinkerBovenhoek(linkerBovenhoek);
@@ -76,10 +76,10 @@ public class Omhullende extends Vorm{
 		return (this.linkerbovenhoek.equals(omhullende.linkerbovenhoek) && this.breedte == omhullende.breedte &&  this.hoogte == omhullende.hoogte);
 	}
 
-	@Override
-	public Omhullende getOmhullende() {
-		return this;
-	}
+//	@Override
+//	public Omhullende getOmhullende() {
+//		return this;
+//	}
 
 	@Override
 	public String toString(){
