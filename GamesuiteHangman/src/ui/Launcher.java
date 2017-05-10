@@ -17,11 +17,12 @@ public class Launcher {
 		
 		try
 		{
-			int x = maakwaardevoorpunt("x-waarde");
-			int y = maakwaardevoorpunt("y-waarde");
-			
+			int x = maakwaarde("x coordinaat van het punt");
+			int y = maakwaarde("y coordinaat van het punt");
 			Punt punt = new Punt(x, y);
-			Cirkel cirkel = new Cirkel(punt, maakwaardevoorpunt("cirkel"));
+			JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
+			
+			Cirkel cirkel = new Cirkel(punt, maakwaarde("raduis van de cirkel"));
 			
 			
 			
@@ -35,12 +36,12 @@ public class Launcher {
 		
 	}
 	
-	private static int maakwaardevoorpunt(String waarde){
+	private static int maakwaarde(String boodschap){
 		while(true){
 			try{
-				return Integer.valueOf(JOptionPane.showInputDialog("Wat is de "+waarde+" van je punt?"));
+				return Integer.valueOf(JOptionPane.showInputDialog(boodschap + ":"));
 			}catch(NumberFormatException e){
-				if(JOptionPane.showConfirmDialog(null, "De "+waarde+" is ongeldig, Wil je stoppen?") == 0) throw new DomainException("Ik wil stoppen, "+waarde+" was ongeldig");
+				if(JOptionPane.showConfirmDialog(null, "\"" + boodschap + "\" was ongeldig, Wil je stoppen?") == 0) throw new DomainException("Ik wil stoppen, \"" + boodschap + "\" was ongeldig");
 			}
 		}
 	}
