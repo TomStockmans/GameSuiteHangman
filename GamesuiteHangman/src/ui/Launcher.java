@@ -13,20 +13,21 @@ public class Launcher {
 		String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
 		Speler speler = new Speler(naam);
 
-		JOptionPane.showMessageDialog(null, "... zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
 		
 		try
 		{
-			int x = maakwaarde("x coordinaat van het punt");
-			int y = maakwaarde("y coordinaat van het punt");
-			Punt punt = new Punt(x, y);
-			JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
+			String[] keuzes = {"cirkel", "rechthoek"};
+			String keuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen:", null, JOptionPane.QUESTION_MESSAGE, null, keuzes, keuzes[0]);
+			switch (keuze) {
+				case "cirkel": maakcirkel();
+					break;
+				case "rechthoek": 
+					break;
+				default:
+					break;
+			}
 			
-			Cirkel cirkel = new Cirkel(punt, maakwaarde("raduis van de cirkel"));
-			
-			
-			
-			JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
 			
 		}
 		catch (DomainException e)
@@ -45,4 +46,20 @@ public class Launcher {
 			}
 		}
 	}
+	
+	private static void maakcirkel(){
+		
+		int x = maakwaarde("x coordinaat van het punt");
+		int y = maakwaarde("y coordinaat van het punt");
+		Punt punt = new Punt(x, y);
+		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
+		
+		Cirkel cirkel = new Cirkel(punt, maakwaarde("raduis van de cirkel"));
+		JOptionPane.showMessageDialog(null, "U hebt een correcte cirkel aangemaakt: " + cirkel.toString());
+	}
+	
+	private static void maakrechthoek(){
+		
+	}
+
 }
