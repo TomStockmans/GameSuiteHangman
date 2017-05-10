@@ -53,6 +53,7 @@ public class HangmanPaneel extends JPanel {
 				char guess = '\u0000';
 				if(input.length() > 0){
 					guess = input.charAt(0);
+					spel.raad(guess);
 					System.out.println(guess);
 				}
 				//TODO raad
@@ -61,9 +62,14 @@ public class HangmanPaneel extends JPanel {
 				getTekenVenster().teken();
 				
 				//TODO
-				//toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen
-				//als de speler opnieuw wilt spelen: herzet het spel en het paneel
-				//anders stop (System.exit(0))
+                //toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen
+                //als de speler opnieuw wilt spelen: herzet het spel en het paneel
+                //anders stop (System.exit(0))
+                if(spel.isGewonnen()){
+
+                }else if(spel.isGameOver()){
+
+                }
 			}
 		}
 

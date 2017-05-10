@@ -10,11 +10,15 @@ public class Launcher {
 
 	public static void main(String[] args) {
 
-	    launch();
+	    hangman();
 		
 	}
 
-	private static void launch(){
+    /*private static void launch(){
+        GameHoofdScherm hoofdScherm = new GameHoofdScherm(getSpeler().getNaam(), new Tekening("hoofdscherm"));
+        hoofdScherm.teken();
+    }*/
+	private static void hangman(){
         WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
         HangMan spel = new HangMan(getSpeler(), woordenLijst);
         basisVormen(spel.getTekening());
