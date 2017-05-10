@@ -9,6 +9,7 @@ public class HangMan {
     private Speler speler;
     private Tekening tekening;
     private String hint;
+    private String woord;
     private WoordenLijst woordenLijst;
     private boolean gewonnen;
     private boolean gameOver;
@@ -43,6 +44,15 @@ public class HangMan {
 
     public String getHint() {
         return hint;
+    }
+
+    public String getWoord() {
+        return woord;
+    }
+
+    public void setWoord(String woord) {
+        if(null == woord || woord.isEmpty()) throw new DomainException("Woord kan niet null of leeg zijn");
+        this.woord = woord;
     }
 
     public boolean isGewonnen() {

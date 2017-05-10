@@ -1,10 +1,12 @@
-package domain;
+package db;
 
+import domain.WoordenLijst;
 import domain.exceptions.DomainException;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class WoordenLezer {
 	
@@ -16,16 +18,19 @@ public class WoordenLezer {
 	
 	public WoordenLijst lees(){
 		WoordenLijst woordenlijst = new WoordenLijst();
-        try (BufferedReader br = new BufferedReader(new FileReader(WoordenLijst.class.getResource(naam).getPath()))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                woordenlijst.voegToe(line.trim());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		try {
+			File file = new File(WoordenLezer.class.getResource(naam).getPath());
+			Scanner text = new Scanner(file);
+			while (text.hasNextLine()) {
+				String lijn = text.nextLine();
+				woordenlijst.voegToe(lijn);
+				//System.out.println(lijn);
+			}
+			text.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
         return woordenlijst;
 	}
 

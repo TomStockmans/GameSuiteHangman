@@ -23,10 +23,12 @@ public class HangmanPaneel extends JPanel {
 	public HangmanPaneel(HangMan spel){
 		super();
 		setSpel(spel);
+        spel.setWoord(spel.getWoordenLijst().getRandomWoord());
 		init();
 	}
 
 	private void init(){
+	    System.out.println(spel.getWoord());
 		letter = new JTextField("",5);
 		woord = new JLabel("");
 		
@@ -51,9 +53,9 @@ public class HangmanPaneel extends JPanel {
 				char guess = '\u0000';
 				if(input.length() > 0){
 					guess = input.charAt(0);
+					System.out.println(guess);
 				}
 				//TODO raad
-
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();

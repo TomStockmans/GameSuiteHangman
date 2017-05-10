@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import db.WoordenLezer;
 import domain.exceptions.DomainException;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public class WoordenLijstTest {
 	@Test
 	public void WoordenLijst_haalt_woord_uit_file() {
 		WoordenLijst woordenlijstLeeg = new WoordenLezer("woordenlijst.txt").lees();
-		assertEquals(1,woordenlijstLeeg.getAantalWoorden());
+		assertEquals(12,woordenlijstLeeg.getAantalWoorden());
 	}
 	
 	@Test
@@ -68,6 +69,14 @@ public class WoordenLijstTest {
 		String woordAlInLijst = geldigeWoorden.get(2);
 
 		woordenlijstMetGeldigeWoorden.voegToe(woordAlInLijst);
+	}
+
+	@Test
+	public void getRandomWoord_moet_een_random_woord_weergeven() {
+		String woord1 = woordenlijstMetGeldigeWoorden.getRandomWoord();
+		String woord2 = woordenlijstMetGeldigeWoorden.getRandomWoord();
+
+		assertFalse(woord1.equals(woord2));
 	}
 
 }

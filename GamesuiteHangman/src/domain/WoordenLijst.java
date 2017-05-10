@@ -3,6 +3,7 @@ package domain;
 import domain.exceptions.DomainException;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Henok on 10/05/2017.
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 public class WoordenLijst {
     private int aantalWoorden;
     private ArrayList<String> woorden = new ArrayList<>();
+    private static Random random = new Random();
 
     public WoordenLijst() {
         this.aantalWoorden = aantalWoorden;
@@ -23,5 +25,8 @@ public class WoordenLijst {
 
     public int getAantalWoorden() {
         return woorden.size();
+    }
+    public String getRandomWoord(){
+        return woorden.get(random.nextInt(getAantalWoorden()-1));
     }
 }
