@@ -2,6 +2,8 @@ package domain;
 
 import domain.exceptions.DomainException;
 
+import java.awt.*;
+
 public class Rechthoek extends Vorm {
 
 	private Punt punt;
@@ -69,6 +71,11 @@ public class Rechthoek extends Vorm {
 	@Override
 	public String toString() {
 		return "Rechthoek: " + punt.toString() + " - breedte: " + breedte + " - hoogte: " + hoogte + "\n" + this.omhullende.toString();
+	}
+	public void teken(Graphics graphics){
+		Graphics2D graphics2D = (Graphics2D) graphics;
+		graphics2D.setStroke(new BasicStroke(5));
+		graphics.drawRect(getLinkerBovenhoek().getX(), getLinkerBovenhoek().getY(), getBreedte(), getHoogte());
 	}
 
 }
