@@ -39,6 +39,12 @@ public class WoordenLijstTest {
 		WoordenLijst woordenlijstLeeg = new WoordenLijst();
 		assertEquals(0,woordenlijstLeeg.getAantalWoorden());
 	}
+
+	@Test
+	public void WoordenLijst_haalt_woord_uit_file() {
+		WoordenLijst woordenlijstLeeg = new WoordenLezer("woordenlijst.txt").lees();
+		assertEquals(1,woordenlijstLeeg.getAantalWoorden());
+	}
 	
 	@Test
 	public void voegToe_moet_een_woord_toevoegen() {

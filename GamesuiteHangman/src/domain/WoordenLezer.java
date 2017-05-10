@@ -3,6 +3,7 @@ package domain;
 import domain.exceptions.DomainException;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class WoordenLezer {
@@ -15,7 +16,7 @@ public class WoordenLezer {
 	
 	public WoordenLijst lees(){
 		WoordenLijst woordenlijst = new WoordenLijst();
-        try (BufferedReader br = new BufferedReader(new FileReader(new File(naam)))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(WoordenLijst.class.getResource(naam).getPath()))) {
             String line;
             while ((line = br.readLine()) != null) {
                 woordenlijst.voegToe(line.trim());
