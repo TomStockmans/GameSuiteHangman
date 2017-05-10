@@ -1,4 +1,7 @@
 package domain;
+
+import domain.exceptions.DomainException;
+
 public class Speler {
 	
 	private String naam;
@@ -16,7 +19,7 @@ public class Speler {
 		return this.score;
 	}
 	
-	private void setNaam(String naam) throws DomainException{
+	private void setNaam(String naam) throws DomainException {
 		if(naam==null||naam.trim().isEmpty()){
 			throw new DomainException("BOOS, Naam moet letters bevatten");
 		}
