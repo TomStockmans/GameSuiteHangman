@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exceptions.DomainException;
+
 /**
  * Created by Henok on 10/05/2017.
  */
@@ -11,14 +13,28 @@ public class HangMan {
     private boolean gewonnen;
     private boolean gameOver;
 
-    public HangMan(Speler geldigeSpeler, WoordenLijst legeWoordenlijst) {
-        this.speler = geldigeSpeler;
-        this.woordenLijst = legeWoordenlijst;
+    public HangMan(Speler geldigeSpeler, WoordenLijst woordenLijst) {
+        setSpeler(geldigeSpeler);
+        setWoordenLijst(woordenLijst);
         tekening = new Tekening("Hangman");
     }
 
     public Speler getSpeler() {
         return speler;
+    }
+
+    public void setSpeler(Speler speler) {
+        if(null == speler) throw new DomainException("Speler kan niet null zijn");
+        this.speler = speler;
+    }
+
+    public WoordenLijst getWoordenLijst() {
+        return woordenLijst;
+    }
+
+    public void setWoordenLijst(WoordenLijst woordenLijst) {
+        if(null == woordenLijst) throw new DomainException("Woordenlijst kan niet null of leeg zijn");
+        this.woordenLijst = woordenLijst;
     }
 
     public Tekening getTekening() {

@@ -2,6 +2,9 @@ package domain;
 
 import domain.exceptions.DomainException;
 
+import java.io.*;
+import java.util.ArrayList;
+
 public class WoordenLezer {
 	
 	private String naam;
@@ -12,7 +15,17 @@ public class WoordenLezer {
 	
 	public WoordenLijst lees(){
 		WoordenLijst woordenlijst = new WoordenLijst();
-		return woordenlijst;
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(naam)))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                woordenlijst.voegToe(line.trim());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return woordenlijst;
 	}
 
 	public String getNaam() {

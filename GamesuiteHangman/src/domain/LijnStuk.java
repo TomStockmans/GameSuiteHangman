@@ -50,6 +50,6 @@ public class LijnStuk extends Vorm{
 	public String toString() {
 		return "LijnStuk:" + startpunt + ", " + eindpunt;
 	}
-    
+
 
 }
