@@ -38,18 +38,26 @@ public class HintWoord {
 	}
 
 	public boolean raad(char letter) {
-
-		for (int i : woord.toCharArray()) {
-			if (i == letter) {
-				return true;
+		letter = Character.toLowerCase(letter);
+		char[] letterswoord = woord.toCharArray();
+		boolean geraden = false;
+		String a = ""+letter;
+		if(geradenwoord.contains(a)){return false;}
+		for (int i=0; i<letterswoord.length; i++) {
+			if (letterswoord[i] == letter) {
+				
+				geradenwoord = geradenwoord.substring(0, i*2) + letter + geradenwoord.substring(i*2+1);
+				
+				
+				geraden = true;
 			}
 		}
-
-		return false;
+		return geraden;
 	}
 
 	public boolean isGeraden() {
-		return geradenwoord == woord;
+		if(!geradenwoord.contains("_")){return true;}
+		return false;
 	}
 
 	@Override
