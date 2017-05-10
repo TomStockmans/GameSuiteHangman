@@ -43,7 +43,7 @@ public class WoordenLijstTest {
 	@Test
 	public void WoordenLijst_haalt_woord_uit_file() {
 		WoordenLijst woordenlijstLeeg = new WoordenLezer("woordenlijst.txt").lees();
-		assertEquals(1,woordenlijstLeeg.getAantalWoorden());
+		assertEquals(2,woordenlijstLeeg.getAantalWoorden());
 	}
 	
 	@Test
