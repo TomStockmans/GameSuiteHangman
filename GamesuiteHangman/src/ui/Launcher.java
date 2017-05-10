@@ -12,7 +12,10 @@ public class Launcher {
 		Speler speler = new Speler(naam);
 
 		JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
-		
+
+        HangMan spel = new HangMan(speler, new WoordenLijst());
+        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, new HangmanPaneel(spel));
+		hoofdScherm.start();
 		try
 		{
 			String[] keuzes = {"cirkel", "rechthoek", "lijnstuk"};

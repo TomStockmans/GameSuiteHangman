@@ -7,10 +7,14 @@ public class HangMan {
     private Speler speler;
     private Tekening tekening;
     private String hint;
+    private WoordenLijst woordenLijst;
     private boolean gewonnen;
     private boolean gameOver;
 
     public HangMan(Speler geldigeSpeler, WoordenLijst legeWoordenlijst) {
+        this.speler = geldigeSpeler;
+        this.woordenLijst = legeWoordenlijst;
+        tekening = new Tekening("Hangman");
     }
 
     public Speler getSpeler() {
