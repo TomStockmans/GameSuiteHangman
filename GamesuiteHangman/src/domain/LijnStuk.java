@@ -39,4 +39,10 @@ public class LijnStuk extends Vorm{
         return new Omhullende(new Punt(xmin, ymin), xmax-xmin, ymax-ymin);
     }
 
+	@Override
+	public String toString() {
+		return "LijnStuk:" + startpunt + ", " + eindpunt;
+	}
+    
+
 }
