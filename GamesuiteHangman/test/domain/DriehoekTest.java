@@ -2,7 +2,6 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.exceptions.DomainException;
 import org.junit.Test;
 
 public class DriehoekTest {
@@ -15,9 +14,6 @@ public class DriehoekTest {
 	private Punt punt3 = new Punt(190, 30);
 	private Punt zelfdeAlsPunt3 = new Punt(190, 30);
 	private Punt verschillendVanPunt3 = new Punt(120, 100);
-	private Punt punt1lijn = new Punt(10,20);
-	private Punt punt2lijn = new Punt(10,40);
-	private Punt punt3lijn = new Punt(10,60);
 
 	@Test
 	public void Driehoek_moet_DrieHoek_aanmaken_met_gegeven_hoekpunten() {
@@ -68,36 +64,6 @@ public class DriehoekTest {
 	public void equals_moet_false_teruggeven_als_parameter_null(){
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		assertFalse(drieHoek.equals(null));
-	}
-	@Test (expected = DomainException.class)
-	public void DrieHoek_Moet_exception_gooien_als_punt1_equals_punt2()  {
-		new Driehoek(punt1, zelfdeAlsPunt1, punt3);
-		
-	}
-	@Test (expected = DomainException.class)
-	public void DrieHoek_Moet_exception_gooien_als_punt1_equals_punt3()  {
-		new Driehoek(punt1, punt2, zelfdeAlsPunt1);
-		
-	}
-	@Test (expected = DomainException.class)
-	public void DrieHoek_Moet_exception_gooien_als_punt2_equals_punt3()  {
-		new Driehoek(punt1, punt2, zelfdeAlsPunt2);
-		
-	}
-	@Test (expected = DomainException.class)
-	public void DrieHoek_Moet_exception_gooien_als_punten_zelfde_lijn()  {
-		new Driehoek(punt1lijn, punt2lijn, punt3lijn);
-		
-	}
-	@Test
-	public void equals_moet_true_teruggeven_als_omhullende_gelijk(){
-
-		Driehoek driehoek = new Driehoek(new Punt(100,200), new Punt(300,200), new Punt(200,100));
-
-		Omhullende omhullende1 = driehoek.getOmhullende();
-		Omhullende omhullende2 = new Omhullende(new Punt(100,100), 200,100);
-
-		assertTrue(omhullende1.equals(omhullende2));
 	}
 
 }

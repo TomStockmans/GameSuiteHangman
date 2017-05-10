@@ -53,19 +53,19 @@ public class Omhullende extends Vorm{
 		this.hoogte = hoogte;
 	}
 	
-	public int getMinimalX(){
+	public int getMinX(){
 		return this.getLinkerBovenhoek().getX();
 	}
 	
-	public int getMaximalX(){
+	public int getMaxX(){
 		return this.getMinimalX()+this.getBreedte();
 	}
 	
-	public int getMinimalY(){
+	public int getMinY(){
 		return this.getLinkerBovenhoek().getY();
 	}
 	
-	public int getMaximalY(){
+	public int getMaxY(){
 		return this.getMinimalY()+this.getHoogte();
 	}
 	

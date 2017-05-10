@@ -2,7 +2,6 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.exceptions.DomainException;
 import org.junit.Before;
 import org.junit.Test;
 
