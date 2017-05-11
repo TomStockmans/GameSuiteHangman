@@ -1,6 +1,6 @@
 package db;
 
-import domain.exceptions.DomainException;
+import domain.DomainException;
 
 /**
  * Created by Henok on 10/05/2017.

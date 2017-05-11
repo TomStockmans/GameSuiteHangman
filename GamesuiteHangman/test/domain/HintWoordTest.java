@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import domain.exceptions.DomainException;
 import org.junit.Test;
 
 
@@ -76,7 +75,7 @@ public class HintWoordTest {
 		assertTrue(hint.raad('e'));
 		assertTrue(hint.raad('t'));
 		assertTrue(hint.raad('s'));
-		
+		System.out.println(hint.toString());
 		assertTrue(hint.isGeraden());
 	}
 

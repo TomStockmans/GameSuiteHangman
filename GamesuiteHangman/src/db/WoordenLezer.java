@@ -1,11 +1,9 @@
 package db;
 
 import domain.WoordenLijst;
-import domain.exceptions.DomainException;
+import domain.DomainException;
 
 import java.io.*;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WoordenLezer {

@@ -1,7 +1,5 @@
 package domain;
 
-import domain.exceptions.DomainException;
-
 import java.awt.*;
 
 public class Rechthoek extends Vorm {

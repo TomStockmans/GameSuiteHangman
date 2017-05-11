@@ -1,11 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-
-import domain.exceptions.*;
 
 public class HintWoord {
 
@@ -15,11 +10,11 @@ public class HintWoord {
 
 	public HintWoord(String pwoord) {
 	    HintLetter hintLetter;
+        setWoord(pwoord);
 		for (char letter: pwoord.toCharArray()) {
 		    hintLetter = new HintLetter(letter);
 		    if(!letters.contains(hintLetter) && letter != ' ') letters.add(hintLetter);
 		}
-		setWoord(pwoord);
         System.out.println(getWoord());
 	}
 
@@ -28,7 +23,7 @@ public class HintWoord {
 	}
 
 	private void setWoord(String woord) {
-		if (woord == null || woord.trim().isEmpty()) {
+		if (woord == null || woord.isEmpty()) {
 			throw new DomainException("Woord is ongeldig");
 		}
 		this.woord = woord;
@@ -60,7 +55,7 @@ public class HintWoord {
 	public boolean raad(char letter) {
 		letter = Character.toLowerCase(letter);
         for (HintLetter hintLetter: letters) {
-            //if(hintLetter.isGeraden()) throw new DomainException("Reeds geraden");
+            if(hintLetter.isGeraden()) return false;
             if(hintLetter.raad(letter)){
                 return true;
             }
@@ -74,7 +69,7 @@ public class HintWoord {
 
 	@Override
 	public String toString() {
-		return geradenwoord;
+		return getHint();
 	}
 
 }

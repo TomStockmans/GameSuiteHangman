@@ -1,7 +1,5 @@
 package domain;
 
-import domain.exceptions.DomainException;
-
 /**
  * Created by Henok on 10/05/2017.
  */
@@ -35,7 +33,7 @@ public class HangMan {
     }
 
     public void setWoordenLijst(WoordenLijst woordenLijst) {
-        if(null == woordenLijst) throw new DomainException("Woordenlijst kan niet null of leeg zijn");
+        if(null == woordenLijst || woordenLijst.getAantalWoorden() == 0) throw new DomainException("Woordenlijst kan niet null of leeg zijn");
         this.woordenLijst = woordenLijst;
     }
 

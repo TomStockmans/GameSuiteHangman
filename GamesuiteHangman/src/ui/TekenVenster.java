@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 import domain.Tekening;
-import domain.exceptions.UiException;
+import domain.UiException;
 
 public class TekenVenster extends Canvas {
 

@@ -1,4 +1,4 @@
-package domain.exceptions;
+package domain;
 
 /**
  * Created by Henok on 10/05/2017.

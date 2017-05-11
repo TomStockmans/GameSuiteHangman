@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import db.WoordenLezer;
 import domain.*;
-import domain.exceptions.DomainException;
+import domain.DomainException;
 
 public class Launcher {
 
@@ -19,11 +19,15 @@ public class Launcher {
         hoofdScherm.teken();
     }*/
 	private static void hangman(){
-        WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
-        HangMan spel = new HangMan(getSpeler(), woordenLijst);
-        HangmanPaneel paneel = new HangmanPaneel(spel);
-        HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
-        hoofdScherm.start();
+        try{
+            WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
+            HangMan spel = new HangMan(getSpeler(), woordenLijst);
+            HangmanPaneel paneel = new HangmanPaneel(spel);
+            HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
+            hoofdScherm.start();
+        }catch (DomainException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
     private static Speler getSpeler(){
         String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
@@ -32,17 +36,6 @@ public class Launcher {
         JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
         return speler;
     }
-
-	
-	private static int maakwaarde(String boodschap){
-		while(true){
-			try{
-				return Integer.valueOf(JOptionPane.showInputDialog(boodschap + ":"));
-			}catch(NumberFormatException e){
-				if(JOptionPane.showConfirmDialog(null, "\"" + boodschap + "\" was ongeldig, Wil je stoppen?") == 0) throw new DomainException("Ik wil stoppen, \"" + boodschap + "\" was ongeldig");
-			}
-		}
-	}
 
 
 

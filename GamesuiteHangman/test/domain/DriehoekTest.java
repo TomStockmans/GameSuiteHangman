@@ -2,9 +2,7 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.exceptions.DomainException;
 import org.junit.Test;
-import domain.exceptions.*;
 
 public class DriehoekTest {
 	private Punt punt1 = new Punt(10, 20);

@@ -1,6 +1,5 @@
 package domain;
 
-import domain.exceptions.DomainException;
 import domain.interfaces.Drawable;
 
 import java.awt.*;
@@ -14,7 +13,6 @@ public class Tekening implements Drawable{
     private static final int MIN_Y = 0;
     private static final int MAX_X = 399;
     private static final int MAX_Y = 399;
-    private int aantalOnzichtbaar;
 
     public Tekening(String naam) {
         setNaam(naam);
@@ -64,7 +62,7 @@ public class Tekening implements Drawable{
     }
 
     public int getAantalOnzichtbaar() {
-        return aantalOnzichtbaar;
+        return 18-getAantalVormen();
     }
 
     public void teken(Graphics graphics) {
