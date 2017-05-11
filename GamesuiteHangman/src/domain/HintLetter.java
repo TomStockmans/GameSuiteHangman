@@ -14,7 +14,7 @@ public class HintLetter {
     public boolean raad(char x) {
     	x = Character.toLowerCase(x);
     	
-    	if(geraden == true){return false;}
+    	if(geraden) return false;
     	if(letter == x){
     		geraden = true;
     		return true;
@@ -24,11 +24,18 @@ public class HintLetter {
     }
 
     public char toChar() {
-    	if(isGeraden() == false){return '_';}
-        return letter;
+    	if(isGeraden())return letter;
+        return '_';
     }
 
     public char getLetter() {
         return letter;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof HintLetter)) return false;
+        HintLetter letter = (HintLetter) obj;
+        return this.getLetter() == letter.getLetter();
     }
 }

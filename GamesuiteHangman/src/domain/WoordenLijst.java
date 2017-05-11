@@ -27,6 +27,6 @@ public class WoordenLijst {
         return woorden.size();
     }
     public String getRandomWoord(){
-        return woorden.get(random.nextInt(getAantalWoorden()-1));
+        return woorden.get(random.nextInt(getAantalWoorden()));
     }
 }

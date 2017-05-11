@@ -1,15 +1,32 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+
 import domain.exceptions.*;
 
 public class HintWoord {
 
 	private String woord;
 	private String geradenwoord = "";
+	private ArrayList<HintLetter> letters = new ArrayList<>();
+    //private HashMap<Character, HintLetter> letters = new HashMap<>();
 
 	public HintWoord(String pwoord) {
+	    HintLetter hintLetter;
+		for (char letter: pwoord.toCharArray()) {
+		    hintLetter = new HintLetter(letter);
+		    //if(letter != ' ') letters.put(letter,hintLetter);
+		    if(!letters.contains(hintLetter) && letter != ' ') letters.add(hintLetter);
+		}
 		setWoord(pwoord);
+        System.out.println(getWoord());
+        /*System.out.println(letters.size());
+		System.out.println(getHint());
+		raad('o');
+        System.out.println(getHint());*/
 	}
 
 	public String getWoord() {
@@ -22,46 +39,43 @@ public class HintWoord {
 		}
 		this.woord = woord;
 
-		char[] letters = woord.toCharArray();
-		for (int i = 0; i < letters.length; i++) {
-
-			if (i == 0) {
-				geradenwoord += "_";
-			} else if (letters[i] == ' ') {
-				geradenwoord += "  ";
-			} else {
-				geradenwoord += " _";
-			}
-
-		}
-
 	}
 	
 	public String getHint(){
+	    geradenwoord = "";
+        char[] letters = getWoord().toCharArray();
+        for (int i = 0; i < letters.length; i++) {
+            if (i == 0) {
+                int index = this.letters.indexOf(new HintLetter(letters[i]));
+                if(this.letters.get(index).isGeraden()) geradenwoord += letters[i];
+                else geradenwoord += "_";
+            } else if (letters[i] == ' ') {
+                geradenwoord += "  ";
+            }else if (letters[i] == '-') {
+                geradenwoord += " -";
+            } else {
+                int index = this.letters.indexOf(new HintLetter(letters[i]));
+                if(this.letters.get(index).isGeraden()) geradenwoord += " "+letters[i];
+                else geradenwoord += " _";
+            }
+
+        }
 		return geradenwoord;
 	}
 
 	public boolean raad(char letter) {
 		letter = Character.toLowerCase(letter);
-		char[] letterswoord = woord.toCharArray();
-		boolean geraden = false;
-		String a = ""+letter;
-		if(geradenwoord.contains(a)){return false;}
-		for (int i=0; i<letterswoord.length; i++) {
-			if (letterswoord[i] == letter) {
-				
-				geradenwoord = geradenwoord.substring(0, i*2) + letter + geradenwoord.substring(i*2+1);
-				
-				
-				geraden = true;
-			}
-		}
-		return geraden;
+        for (HintLetter hintLetter: letters) {
+            //if(hintLetter.isGeraden()) throw new DomainException("Reeds geraden");
+            if(hintLetter.raad(letter)){
+                return true;
+            }
+        }
+        return false;
 	}
 
 	public boolean isGeraden() {
-		if(!geradenwoord.contains("_")){return true;}
-		return false;
+	    return !getHint().contains("_");
 	}
 
 	@Override

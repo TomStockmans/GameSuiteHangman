@@ -64,6 +64,6 @@ public class HangMan {
     }
 
     public void raad(char letter) {
-        new HintLetter(letter);
+        System.out.println(hintWoord.raad(letter));
     }
 }
