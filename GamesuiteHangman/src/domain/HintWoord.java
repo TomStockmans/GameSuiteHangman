@@ -36,6 +36,10 @@ public class HintWoord {
 		}
 
 	}
+	
+	public String getHint(){
+		return geradenwoord;
+	}
 
 	public boolean raad(char letter) {
 		letter = Character.toLowerCase(letter);

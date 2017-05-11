@@ -8,8 +8,7 @@ import domain.exceptions.DomainException;
 public class HangMan {
     private Speler speler;
     private Tekening tekening;
-    private String hint;
-    private String woord;
+    private HintWoord hintWoord;
     private WoordenLijst woordenLijst;
     private boolean gewonnen;
     private boolean gameOver;
@@ -18,6 +17,7 @@ public class HangMan {
         setSpeler(geldigeSpeler);
         setWoordenLijst(woordenLijst);
         tekening = new Tekening("Hangman");
+        setWoord(woordenLijst.getRandomWoord());
     }
 
     public Speler getSpeler() {
@@ -43,16 +43,16 @@ public class HangMan {
     }
 
     public String getHint() {
-        return hint;
+        return hintWoord.getHint();
     }
 
     public String getWoord() {
-        return woord;
+        return hintWoord.getWoord();
     }
 
-    public void setWoord(String woord) {
+    private void setWoord(String woord) {
         if(null == woord || woord.isEmpty()) throw new DomainException("Woord kan niet null of leeg zijn");
-        this.woord = woord;
+        this.hintWoord = new HintWoord(woord);
     }
 
     public boolean isGewonnen() {
