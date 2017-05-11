@@ -5,9 +5,7 @@ import domain.exceptions.DomainException;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by Henok on 10/05/2017.
- */
+
 public class WoordenLijst {
     private int aantalWoorden;
     private ArrayList<String> woorden = new ArrayList<>();

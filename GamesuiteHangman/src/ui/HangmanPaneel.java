@@ -4,9 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import domain.HangMan;
 
@@ -51,8 +49,7 @@ public class HangmanPaneel extends JPanel {
 				char guess = '\u0000';
 				if(input.length() > 0){
 					guess = input.charAt(0);
-					spel.raad(guess);
-					System.out.println(guess);
+					if(!spel.raad(guess)) spel.extraVormen();
 				}
 				//TODO raad
 				woord.setText(getSpel().getHint());
@@ -64,9 +61,11 @@ public class HangmanPaneel extends JPanel {
                 //als de speler opnieuw wilt spelen: herzet het spel en het paneel
                 //anders stop (System.exit(0))
                 if(spel.isGewonnen()){
-
+                    JOptionPane.showMessageDialog(null, "You won!!!");
+                    System.exit(0);
                 }else if(spel.isGameOver()){
-
+                    JOptionPane.showMessageDialog(null, "You lost!!!");
+                    System.exit(0);
                 }
 			}
 		}

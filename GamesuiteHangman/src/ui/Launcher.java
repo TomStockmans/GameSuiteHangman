@@ -21,8 +21,6 @@ public class Launcher {
 	private static void hangman(){
         WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
         HangMan spel = new HangMan(getSpeler(), woordenLijst);
-        basisVormen(spel.getTekening());
-        extraVormen(spel.getTekening());
         HangmanPaneel paneel = new HangmanPaneel(spel);
         HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
         hoofdScherm.start();
@@ -33,46 +31,6 @@ public class Launcher {
 
         JOptionPane.showMessageDialog(null, speler.getNaam() + " zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
         return speler;
-    }
-    private static void basisVormen(Tekening tekening){
-        Vorm galgBodem = new Rechthoek(new Punt(10, 350), 300, 40);
-        Vorm galgStaaf = new LijnStuk(new Punt(160, 350), new Punt(160, 50));
-        Vorm hangbar = new LijnStuk(new Punt(160, 50), new Punt(280, 50));
-        Vorm koord = new LijnStuk(new Punt(280, 50), new Punt(280, 100));
-        tekening.voegToe(galgBodem);
-        tekening.voegToe(galgStaaf);
-        tekening.voegToe(hangbar);
-        tekening.voegToe(koord);
-    }
-    private static void extraVormen(Tekening tekening){
-        Vorm hoofd = new Cirkel(new Punt(280, 125), 25);
-        tekening.voegToe(hoofd);
-        Vorm oogLinks = new Cirkel(new Punt(270, 118), 2);
-        tekening.voegToe(oogLinks);
-        Vorm oogRechts = new Cirkel(new Punt(290, 118), 2);
-        tekening.voegToe(oogRechts);
-        Vorm neus = new Cirkel(new Punt(280, 128), 2);
-        tekening.voegToe(neus);
-        Vorm mond = new LijnStuk(new Punt(270, 138), new Punt(290, 138));
-        tekening.voegToe(mond);
-        Vorm lijf = new LijnStuk(new Punt(280, 150), new Punt(280, 250));
-        tekening.voegToe(lijf);
-        Vorm beenLinks = new LijnStuk(new Punt(280, 250), new Punt(240, 310));
-        tekening.voegToe(beenLinks);
-        Vorm beenRechts = new LijnStuk(new Punt(280, 250), new Punt(320, 310));
-        tekening.voegToe(beenRechts);
-        Vorm voetLinks = new Cirkel(new Punt(240, 310), 5);
-        tekening.voegToe(voetLinks);
-        Vorm voetRechts = new Cirkel(new Punt(320, 310), 5);
-        tekening.voegToe(voetRechts);
-        Vorm armLinks = new LijnStuk(new Punt(280, 200), new Punt(230, 170));
-        tekening.voegToe(armLinks);
-        Vorm armRechts = new LijnStuk(new Punt(280, 200), new Punt(330, 170));
-        tekening.voegToe(armRechts);
-        Vorm handLinks = new Cirkel(new Punt(230, 170), 5);
-        tekening.voegToe(handLinks);
-        Vorm handRechts = new Cirkel(new Punt(330, 170), 5);
-        tekening.voegToe(handRechts);
     }
 
 	

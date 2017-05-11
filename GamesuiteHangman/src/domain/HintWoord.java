@@ -12,21 +12,15 @@ public class HintWoord {
 	private String woord;
 	private String geradenwoord = "";
 	private ArrayList<HintLetter> letters = new ArrayList<>();
-    //private HashMap<Character, HintLetter> letters = new HashMap<>();
 
 	public HintWoord(String pwoord) {
 	    HintLetter hintLetter;
 		for (char letter: pwoord.toCharArray()) {
 		    hintLetter = new HintLetter(letter);
-		    //if(letter != ' ') letters.put(letter,hintLetter);
 		    if(!letters.contains(hintLetter) && letter != ' ') letters.add(hintLetter);
 		}
 		setWoord(pwoord);
         System.out.println(getWoord());
-        /*System.out.println(letters.size());
-		System.out.println(getHint());
-		raad('o');
-        System.out.println(getHint());*/
 	}
 
 	public String getWoord() {

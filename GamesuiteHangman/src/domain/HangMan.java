@@ -12,12 +12,13 @@ public class HangMan {
     private WoordenLijst woordenLijst;
     private boolean gewonnen;
     private boolean gameOver;
-
+    private int fails;
     public HangMan(Speler geldigeSpeler, WoordenLijst woordenLijst) {
         setSpeler(geldigeSpeler);
         setWoordenLijst(woordenLijst);
         tekening = new Tekening("Hangman");
         setWoord(woordenLijst.getRandomWoord());
+        basisVormen();
     }
 
     public Speler getSpeler() {
@@ -63,7 +64,68 @@ public class HangMan {
         return gameOver;
     }
 
-    public void raad(char letter) {
-        System.out.println(hintWoord.raad(letter));
+    public boolean raad(char letter) {
+        boolean ok = hintWoord.raad(letter);
+        if(hintWoord.isGeraden()) gewonnen = true;
+        return ok;
+    }
+
+    private void basisVormen(){
+        Vorm galgBodem = new Rechthoek(new Punt(10, 350), 300, 40);
+        Vorm galgStaaf = new LijnStuk(new Punt(160, 350), new Punt(160, 50));
+        Vorm hangbar = new LijnStuk(new Punt(160, 50), new Punt(280, 50));
+        Vorm koord = new LijnStuk(new Punt(280, 50), new Punt(280, 100));
+        getTekening().voegToe(galgBodem);
+        getTekening().voegToe(galgStaaf);
+        getTekening().voegToe(hangbar);
+        getTekening().voegToe(koord);
+    }
+    public void extraVormen(){
+        if(fails == 0){
+            Vorm hoofd = new Cirkel(new Punt(280, 125), 25);
+            getTekening().voegToe(hoofd);
+        }else if(fails == 1){
+            Vorm oogLinks = new Cirkel(new Punt(270, 118), 2);
+            getTekening().voegToe(oogLinks);
+        }else if(fails == 2){
+            Vorm oogRechts = new Cirkel(new Punt(290, 118), 2);
+            getTekening().voegToe(oogRechts);
+        }else if(fails == 3){
+            Vorm neus = new Cirkel(new Punt(280, 128), 2);
+            getTekening().voegToe(neus);
+        }else if(fails == 4){
+            Vorm mond = new LijnStuk(new Punt(270, 138), new Punt(290, 138));
+            getTekening().voegToe(mond);
+        }else if(fails == 5){
+            Vorm lijf = new LijnStuk(new Punt(280, 150), new Punt(280, 250));
+            getTekening().voegToe(lijf);
+        }else if(fails == 6){
+            Vorm beenLinks = new LijnStuk(new Punt(280, 250), new Punt(240, 310));
+            getTekening().voegToe(beenLinks);
+        }else if(fails == 7){
+            Vorm beenRechts = new LijnStuk(new Punt(280, 250), new Punt(320, 310));
+            getTekening().voegToe(beenRechts);
+        }else if(fails == 8){
+            Vorm voetLinks = new Cirkel(new Punt(240, 310), 5);
+            getTekening().voegToe(voetLinks);
+        }else if(fails == 9){
+            Vorm voetRechts = new Cirkel(new Punt(320, 310), 5);
+            getTekening().voegToe(voetRechts);
+        }else if(fails == 10){
+            Vorm armLinks = new LijnStuk(new Punt(280, 200), new Punt(230, 170));
+            getTekening().voegToe(armLinks);
+        }else if(fails == 11){
+            Vorm armRechts = new LijnStuk(new Punt(280, 200), new Punt(330, 170));
+            getTekening().voegToe(armRechts);
+        }else if(fails == 12){
+            Vorm handLinks = new Cirkel(new Punt(230, 170), 5);
+            getTekening().voegToe(handLinks);
+        }else if(fails == 13){
+            Vorm handRechts = new Cirkel(new Punt(330, 170), 5);
+            getTekening().voegToe(handRechts);
+        }else if(fails == 14){
+            gameOver = true;
+        }
+        fails++;
     }
 }
