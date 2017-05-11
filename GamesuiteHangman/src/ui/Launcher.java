@@ -116,7 +116,7 @@ public class Launcher {
 		Rechthoek rechthoek = new Rechthoek(punt, maakwaarde("breedte van de rechthoek:"), maakwaarde("hoogte van de rechthoek:"));
 		JOptionPane.showMessageDialog(null, "U hebt een correcte rechthoek aangemaakt: " + rechthoek.toString());
 		
-		WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
+		WoordenLijst woordenLijst = new WoordenLezer("C:\\Users\\Tom Stockmans\\Documents\\GameSuiteHangman\\GamesuiteHangman\\src\\db\\woordenlijst.txt").lees();
         HangMan spel = new HangMan(speler, woordenLijst);
         HangmanPaneel paneel = new HangmanPaneel(spel);
         HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);

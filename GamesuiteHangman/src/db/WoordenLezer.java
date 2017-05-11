@@ -19,7 +19,7 @@ public class WoordenLezer {
 	public WoordenLijst lees(){
 		WoordenLijst woordenlijst = new WoordenLijst();
 		try {
-			File file = new File(WoordenLezer.class.getResource(naam).getPath());
+			File file = new File(this.naam);
 			Scanner text = new Scanner(file);
 			while (text.hasNextLine()) {
 				String lijn = text.nextLine();
