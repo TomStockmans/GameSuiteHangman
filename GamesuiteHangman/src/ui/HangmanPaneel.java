@@ -23,7 +23,7 @@ public class HangmanPaneel extends JPanel {
 	public HangmanPaneel(HangMan spel){
 		super();
 		setSpel(spel);
-        spel.setWoord(spel.getWoordenLijst().getRandomWoord());
+        //spel.setWoord(spel.getWoordenLijst().getRandomWoord());
 		init();
 	}
 
