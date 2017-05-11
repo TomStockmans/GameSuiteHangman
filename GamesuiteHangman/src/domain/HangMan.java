@@ -18,6 +18,7 @@ public class HangMan {
         setSpeler(geldigeSpeler);
         setWoordenLijst(woordenLijst);
         tekening = new Tekening("Hangman");
+        setWoord(woordenLijst.getRandomWoord());
     }
 
     public Speler getSpeler() {
