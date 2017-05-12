@@ -75,7 +75,7 @@ public class HintWoordTest {
 		assertTrue(hint.raad('e'));
 		assertTrue(hint.raad('t'));
 		assertTrue(hint.raad('s'));
-		System.out.println(hint.toString());
+		System.out.println(hint.getHint());
 		assertTrue(hint.isGeraden());
 	}
 

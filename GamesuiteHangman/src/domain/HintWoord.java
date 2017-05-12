@@ -55,7 +55,7 @@ public class HintWoord {
 	public boolean raad(char letter) {
 		letter = Character.toLowerCase(letter);
         for (HintLetter hintLetter: letters) {
-            if(hintLetter.isGeraden()) return false;
+            if(hintLetter.isGeraden() && hintLetter.equals(new HintLetter(letter))) return false;
             if(hintLetter.raad(letter)){
                 return true;
             }
@@ -64,6 +64,7 @@ public class HintWoord {
 	}
 
 	public boolean isGeraden() {
+		
 	    return !getHint().contains("_");
 	}
 
