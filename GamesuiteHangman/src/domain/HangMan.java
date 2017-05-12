@@ -122,6 +122,7 @@ public class HangMan {
         }else if(fails == 13){
             Vorm handRechts = new Cirkel(new Punt(330, 170), 5);
             getTekening().voegToe(handRechts);
+            gameOver = true;
         }else if(fails == 14){
             gameOver = true;
         }
