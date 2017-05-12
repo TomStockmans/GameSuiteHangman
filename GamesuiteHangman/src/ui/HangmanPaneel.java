@@ -69,8 +69,10 @@ public class HangmanPaneel extends JPanel {
 		}
 		public void quitDialog(String boodschap){
             if(JOptionPane.showConfirmDialog(null, boodschap+="Want to play again?") == 0){
+                System.out.println(spel.getTekening());
                 WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
-                setSpel(new HangMan(getSpel().getSpeler(), woordenLijst));
+                HangMan spel = new HangMan(getSpel().getSpeler(), woordenLijst);
+                setSpel(spel);
                 setTekenVenster(new TekenVenster(spel.getTekening()));
                 getTekenVenster().repaint();
             }else{
