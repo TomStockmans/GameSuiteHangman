@@ -69,12 +69,13 @@ public class HangmanPaneel extends JPanel {
 		}
 		public void quitDialog(String boodschap){
             if(JOptionPane.showConfirmDialog(null, boodschap+="Want to play again?") == 0){
-                System.out.println(spel.getTekening().getAantalVormen());
                 WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
                 HangMan spel = new HangMan(getSpel().getSpeler(), woordenLijst);
-                setSpel(spel);
-                setTekenVenster(new TekenVenster(spel.getTekening()));
-                tekenVenster.teken();
+                HangmanPaneel paneel = new HangmanPaneel(spel);
+                HangManHoofdScherm hoofdScherm = new HangManHoofdScherm(spel, paneel);
+                getHoofdScherm().setVisible(false);
+                getHoofdScherm().dispose();
+                hoofdScherm.start();
             }else{
                 System.exit(0);
             }
