@@ -64,6 +64,7 @@ public class HangMan {
 
     public boolean raad(char letter) {
         boolean ok = hintWoord.raad(letter);
+        if(!ok) extraVormen();
         if(hintWoord.isGeraden()) gewonnen = true;
         return ok;
     }

@@ -49,7 +49,7 @@ public class HangmanPaneel extends JPanel {
 				char guess = '\u0000';
 				if(input.length() > 0){
 					guess = input.charAt(0);
-					if(!spel.raad(guess)) spel.extraVormen();
+					if(!spel.raad(guess));
 				}
 				//TODO raad
 				woord.setText(getSpel().getHint());

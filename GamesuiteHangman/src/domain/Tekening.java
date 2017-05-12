@@ -28,6 +28,7 @@ public class Tekening implements Drawable{
 	}
 
 	public int getAantalVormen() {
+        System.out.println(vormen.size());
 		return vormen.size();
 	}
 
