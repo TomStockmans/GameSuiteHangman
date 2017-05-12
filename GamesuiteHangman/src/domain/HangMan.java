@@ -5,7 +5,7 @@ package domain;
  */
 public class HangMan {
     private Speler speler;
-    private Tekening tekening;
+    private HangManTekening tekening;
     private HintWoord hintWoord;
     private WoordenLijst woordenLijst;
     private boolean gewonnen;

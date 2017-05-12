@@ -8,7 +8,9 @@ public class WoordenLijst {
     private ArrayList<String> woorden = new ArrayList<>();
     private static Random random = new Random();
 
-    public WoordenLijst() {}
+    public WoordenLijst() {
+
+    }
 
     public void voegToe(String woord) {
         if(null == woord || woord.isEmpty()) throw new DomainException("Woord kan niet null of leeg zijn");

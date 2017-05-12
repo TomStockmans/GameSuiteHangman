@@ -43,7 +43,7 @@ public class WoordenLijstTest {
 	@Test
 	public void WoordenLijst_haalt_woord_uit_file() {
 		WoordenLijst woordenlijstLeeg = new WoordenLezer("woordenlijst.txt").lees();
-		assertEquals(12,woordenlijstLeeg.getAantalWoorden());
+		assertTrue(woordenlijstLeeg.getAantalWoorden() > 0);
 	}
 	
 	@Test
@@ -72,8 +72,9 @@ public class WoordenLijstTest {
 
 	@Test
 	public void getRandomWoord_moet_een_random_woord_weergeven() {
-		String woord1 = woordenlijstMetGeldigeWoorden.getRandomWoord();
-		String woord2 = woordenlijstMetGeldigeWoorden.getRandomWoord();
+		WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
+		String woord1 = woordenLijst.getRandomWoord();
+		String woord2 = woordenLijst.getRandomWoord();
 
 		assertFalse(woord1.equals(woord2));
 	}
