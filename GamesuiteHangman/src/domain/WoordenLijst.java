@@ -5,12 +5,11 @@ import java.util.Random;
 
 
 public class WoordenLijst {
-    private int aantalWoorden;
     private ArrayList<String> woorden = new ArrayList<>();
     private static Random random = new Random();
 
     public WoordenLijst() {
-        this.aantalWoorden = aantalWoorden;
+
     }
 
     public void voegToe(String woord) {
