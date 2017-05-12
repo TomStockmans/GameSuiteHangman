@@ -1,6 +1,7 @@
 package ui;
 
 import java.awt.BorderLayout;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -8,9 +9,8 @@ import javax.swing.*;
 
 import db.WoordenLezer;
 import domain.HangMan;
-import domain.HangManTekening;
 import domain.WoordenLijst;
-import jdk.nashorn.internal.scripts.JO;
+
 
 public class HangmanPaneel extends JPanel {
 

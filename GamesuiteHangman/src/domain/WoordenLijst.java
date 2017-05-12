@@ -5,13 +5,10 @@ import java.util.Random;
 
 
 public class WoordenLijst {
-    private int aantalWoorden;
     private ArrayList<String> woorden = new ArrayList<>();
     private static Random random = new Random();
 
-    public WoordenLijst() {
-        this.aantalWoorden = aantalWoorden;
-    }
+    public WoordenLijst() {}
 
     public void voegToe(String woord) {
         if(null == woord || woord.isEmpty()) throw new DomainException("Woord kan niet null of leeg zijn");
