@@ -12,6 +12,7 @@ public class HangManHoofdScherm extends GameHoofdScherm {
 		super("Hangman - "+spel.getSpeler().getNaam(), spel.getTekening());	
 		
 		spelpaneel.setTekenVenster(getTekenvenster());
+
 		this.add(spelpaneel, BorderLayout.SOUTH);
 	}
 	

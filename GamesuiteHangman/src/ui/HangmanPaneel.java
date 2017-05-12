@@ -21,6 +21,7 @@ public class HangmanPaneel extends JPanel {
 	
 	private TekenVenster tekenVenster;
 	private HangMan spel;
+	private GameHoofdScherm hoofdScherm;
 	
 	public HangmanPaneel(HangMan spel){
 		super();
@@ -71,7 +72,7 @@ public class HangmanPaneel extends JPanel {
                 WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
                 setSpel(new HangMan(getSpel().getSpeler(), woordenLijst));
                 setTekenVenster(new TekenVenster(spel.getTekening()));
-
+                getTekenVenster().repaint();
             }else{
                 System.exit(0);
             }
@@ -100,4 +101,12 @@ public class HangmanPaneel extends JPanel {
 
 		reset();
 	}
+
+    public GameHoofdScherm getHoofdScherm() {
+        return hoofdScherm;
+    }
+
+    public void setHoofdScherm(GameHoofdScherm hoofdScherm) {
+        this.hoofdScherm = hoofdScherm;
+    }
 }

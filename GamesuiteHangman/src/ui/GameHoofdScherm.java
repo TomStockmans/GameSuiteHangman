@@ -14,6 +14,7 @@ public class GameHoofdScherm extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	private TekenVenster tekenvenster;
+	public static GameHoofdScherm hoofdScherm;
 
 	public GameHoofdScherm(String titel, Tekening tekening){
 		super(titel);
@@ -24,12 +25,12 @@ public class GameHoofdScherm extends JFrame{
 		tekeningPaneel.setBackground(Color.white);
 		tekeningPaneel.setBorder(BorderFactory.createMatteBorder( 3, 3, 3, 3, Color.darkGray));
 		tekeningPaneel.add(tekenvenster);
-
 		this.setLayout(new BorderLayout());
 		this.add(tekeningPaneel, BorderLayout.CENTER);
 		this.pack();
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 	
 	public void teken(){
