@@ -16,7 +16,7 @@ public class HintWoord {
 		    if(!letters.contains(hintLetter) && letter != ' ') letters.add(hintLetter);
 		}
 		//TODO Hint woord aan begin spel;
-        //System.out.println(getWoord());
+        System.out.println(getWoord());
 	}
 
 	public String getWoord() {

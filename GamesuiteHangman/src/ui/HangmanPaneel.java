@@ -6,7 +6,11 @@ import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
+import db.WoordenLezer;
 import domain.HangMan;
+import domain.HangManTekening;
+import domain.WoordenLijst;
+import jdk.nashorn.internal.scripts.JO;
 
 public class HangmanPaneel extends JPanel {
 
@@ -51,25 +55,27 @@ public class HangmanPaneel extends JPanel {
 					guess = input.charAt(0);
 					if(!spel.raad(guess));
 				}
-				//TODO raad
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();
-				
-				//TODO
-                //toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen
-                //als de speler opnieuw wilt spelen: herzet het spel en het paneel
-                //anders stop (System.exit(0))
+
                 if(spel.isGewonnen()){
-                    JOptionPane.showMessageDialog(null, "You won!!!");
-                    System.exit(0);
+                    quitDialog("You won\n");
                 }else if(spel.isGameOver()){
-                    JOptionPane.showMessageDialog(null, "You lost!!!");
-                    System.exit(0);
+                    quitDialog("You lost\n");
                 }
 			}
 		}
+		public void quitDialog(String boodschap){
+            if(JOptionPane.showConfirmDialog(null, boodschap+="Want to play again?") == 0){
+                WoordenLijst woordenLijst = new WoordenLezer("woordenlijst.txt").lees();
+                setSpel(new HangMan(getSpel().getSpeler(), woordenLijst));
+                setTekenVenster(new TekenVenster(spel.getTekening()));
 
+            }else{
+                System.exit(0);
+            }
+		}
 		@Override
 		public void keyReleased(KeyEvent arg0) {/* Niet nodig*/}
 		@Override

@@ -14,9 +14,8 @@ public class HangMan {
     public HangMan(Speler geldigeSpeler, WoordenLijst woordenLijst) {
         setSpeler(geldigeSpeler);
         setWoordenLijst(woordenLijst);
-        tekening = new Tekening("Hangman");
+        tekening = new HangManTekening("Hangman");
         setWoord(woordenLijst.getRandomWoord());
-        basisVormen();
     }
 
     public Speler getSpeler() {
@@ -69,16 +68,6 @@ public class HangMan {
         return ok;
     }
 
-    private void basisVormen(){
-        Vorm galgBodem = new Rechthoek(new Punt(10, 350), 300, 40);
-        Vorm galgStaaf = new LijnStuk(new Punt(160, 350), new Punt(160, 50));
-        Vorm hangbar = new LijnStuk(new Punt(160, 50), new Punt(280, 50));
-        Vorm koord = new LijnStuk(new Punt(280, 50), new Punt(280, 100));
-        getTekening().voegToe(galgBodem);
-        getTekening().voegToe(galgStaaf);
-        getTekening().voegToe(hangbar);
-        getTekening().voegToe(koord);
-    }
     public void extraVormen(){
         if(fails == 0){
             Vorm hoofd = new Cirkel(new Punt(280, 125), 25);
