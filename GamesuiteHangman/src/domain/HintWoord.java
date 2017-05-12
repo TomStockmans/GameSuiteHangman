@@ -58,6 +58,7 @@ public class HintWoord {
         for (HintLetter hintLetter: letters) {
             if(hintLetter.isGeraden() && hintLetter.equals(new HintLetter(letter))) return false;
             if(hintLetter.raad(letter)){
+            	
                 return true;
             }
         }
